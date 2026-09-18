@@ -1,67 +1,83 @@
-# Cricket Career Game Foundation
+# Cricket Career Game
 
-A single-player, offline-first cricket career game foundation featuring complete player progression, tournaments, performance evaluation, statistics, save/load, and match simulation systems.
-
-> **Long-Term Target**: This repository serves as the core logic and career architecture foundation for a future 3D mobile cricket game built with Unity.
+A professional 3D mobile cricket career simulation featuring authentic player progression, tournaments, performance evaluation, statistics, and offline persistence.
 
 ---
 
-## Features
+## Project Overview
 
-- **Player Creation & Progression**: Full player attribute modeling, traits, growth curves, fatigue/fitness, and career trajectory from Under-16 to International World Cups.
-- **Career Systems**: Dynamic calendar, team selection manager, performance evaluator, contract management, and milestone tracking.
-- **Tournament Architecture**: Multi-tier tournament systems with league tables, group stages, knockouts, fixtures, and NRR (Net Run Rate) calculation.
-- **Match Simulation & Interactive Gameplay**:
-  - 2.5D Canvas stadium match view at 60 FPS.
-  - Deterministic 3D ball physics (trajectory, aerodynamic swing, pitch seam, bounce restitution, and spin turn).
-  - Directional batting controls (Left, Center, Right) across 10 authentic cricket shots.
-  - Bowling control with pace effort, line/length selection, variation presets, and an interactive accuracy/power meter.
-  - Running between wickets decisions (Safe Stay vs Risky Extra Run) and reflex fielding/throwing system.
-  - Contextual AI opponents adapted for T20 Powerplays, Required Run Rate pressure, and death overs.
-- **Broadcast Experience**: Full television scoreboard overlay, dynamic ball-by-ball commentary engine, match milestones, and procedural Web Audio synthesized soundscape.
-- **Offline Persistence**: Mid-match safe state serialization and local storage persistence.
+- **Project Name**: Cricket Career Game
+- **Genre**: 3D Cricket Career Simulation
+- **Platform**: Android / iOS
+- **Engine**: Unity (3D Mobile)
+- **Primary Mode**: Offline Career
+- **Future Roadmap**: Online Multiplayer
 
 ---
 
-## Tech Stack (Current Prototype)
+## Career Progression Ladder
 
-- **Language**: TypeScript
-- **Bundler**: Vite
-- **Testing**: Vitest (62 unit & integration tests)
-- **Audio**: Web Audio API (Synthesized)
-- **Rendering**: HTML5 Canvas (60 FPS 2.5D field view)
+The single-player career follows a meritocratic progression pathway:
+
+1. **Under-16 Cup**
+2. **Under-19 Cup**
+3. **Domestic Cricket**
+4. **Country / Regional League**
+5. **International Home Series**
+6. **International Away Series**
+7. **Test Match Series**
+8. **T20 World Cup**
+9. **ODI World Cup**
+
+*Note: Promotion to higher tiers depends strictly on player performance, match ratings, milestone accomplishments, and physical condition.*
 
 ---
 
-## Getting Started
+## Repository Structure
 
-### Prerequisites
-
-- Node.js (v18+)
-- npm
-
-### Installation
-
-```bash
-npm install
+```
+Cricket-Career-Game/
+│
+├── UnityGame/                          # Official Unity 3D mobile game project
+│   ├── Assets/
+│   │   ├── _Game/                      # Core C# Architecture (Core, Career, UI, Gameplay)
+│   │   ├── Scenes/                     # Bootstrap, MainMenu, CareerHub, Training, Match
+│   │   ├── Prefabs/
+│   │   ├── Materials/
+│   │   ├── Models/
+│   │   ├── Textures/
+│   │   ├── Animations/
+│   │   ├── Audio/
+│   │   └── Resources/
+│   ├── Packages/                       # Package Manager manifest
+│   └── ProjectSettings/                # Project & platform settings (Android / iOS)
+│
+├── Prototype/                          # Complete TypeScript/Vite prototype (Design Reference)
+│   ├── src/                            # Tested game logic & simulation algorithms
+│   └── tests/                          # 62 passing unit & integration tests
+│
+├── Docs/                               # Technical specifications & architecture blueprints
+│   └── ARCHITECTURE.md
+│
+├── .gitignore                          # Official Unity + Web ignore rules
+└── README.md
 ```
 
-### Running Locally
+---
+
+## Prototype Verification
+
+The design reference prototype in `Prototype/` can be tested and run with:
 
 ```bash
+cd Prototype
+npm install
+npm test
 npm run dev
 ```
 
-Visit `http://localhost:5173` in your browser to launch the game.
+---
 
-### Running Tests
+## Disclaimer
 
-```bash
-npm test
-```
-
-### Production Build
-
-```bash
-npm run build
-```
+This is an independent, original project developed from the ground up with custom C# systems, architecture, and logic. It is **not affiliated with, endorsed by, or associated with Real Cricket, Nautilus Mobile, or any other commercial cricket game**.

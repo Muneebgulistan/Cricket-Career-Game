@@ -20,4 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Match.unity
     guid: 10000000000000000000000000000005
+  - enabled: 1
+    path: Assets/Scenes/Match/CricketStadiumPrototype.unity
+    guid: 10000000000000000000000000000006
   m_configObjects: {}
+

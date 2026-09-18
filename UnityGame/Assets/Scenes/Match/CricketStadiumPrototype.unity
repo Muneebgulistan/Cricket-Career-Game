@@ -1,0 +1,2003 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.25, g: 0.3, b: 0.35, a: 1}
+  m_AmbientEquatorColor: {r: 0.15, g: 0.18, b: 0.2, a: 1}
+  m_AmbientGroundColor: {r: 0.08, g: 0.08, b: 0.08, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_Sun: {fileID: 702}
+--- !u!1 &100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101}
+  m_Layer: 0
+  m_Name: CricketStadium
+  m_TagString: Untagged
+--- !u!4 &101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 201}
+  - {fileID: 301}
+  - {fileID: 401}
+  - {fileID: 501}
+  - {fileID: 601}
+  - {fileID: 701}
+  - {fileID: 801}
+  - {fileID: 901}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!1 &200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 201}
+  m_Layer: 0
+  m_Name: Ground
+  m_TagString: Untagged
+--- !u!4 &201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 211}
+  - {fileID: 221}
+  - {fileID: 231}
+  - {fileID: 241}
+  - {fileID: 251}
+  - {fileID: 261}
+  - {fileID: 271}
+  - {fileID: 281}
+  - {fileID: 291}
+  m_Father: {fileID: 101}
+  m_RootOrder: 0
+--- !u!1 &210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211}
+  - component: {fileID: 212}
+  - component: {fileID: 213}
+  - component: {fileID: 214}
+  m_Layer: 0
+  m_Name: Outfield
+  m_TagString: Untagged
+--- !u!4 &211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 14, y: 1, z: 14}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 0
+--- !u!33 &212
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &213
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000001, type: 2}
+--- !u!64 &214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+--- !u!1 &220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 221}
+  - component: {fileID: 222}
+  - component: {fileID: 223}
+  - component: {fileID: 224}
+  m_Layer: 0
+  m_Name: Pitch
+  m_TagString: Untagged
+--- !u!4 &221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0}
+  m_LocalScale: {x: 3.05, y: 0.04, z: 20.12}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 1
+--- !u!33 &222
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &223
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000002, type: 2}
+--- !u!65 &224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 231}
+  - component: {fileID: 232}
+  - component: {fileID: 233}
+  m_Layer: 0
+  m_Name: BowlingCreaseNorth
+  m_TagString: Untagged
+--- !u!4 &231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.045, z: -10.06}
+  m_LocalScale: {x: 2.64, y: 0.01, z: 0.08}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 2
+--- !u!33 &232
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &233
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000003, type: 2}
+--- !u!1 &240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241}
+  - component: {fileID: 242}
+  - component: {fileID: 243}
+  m_Layer: 0
+  m_Name: BowlingCreaseSouth
+  m_TagString: Untagged
+--- !u!4 &241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.045, z: 10.06}
+  m_LocalScale: {x: 2.64, y: 0.01, z: 0.08}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 3
+--- !u!33 &242
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &243
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000003, type: 2}
+--- !u!1 &250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 251}
+  - component: {fileID: 252}
+  - component: {fileID: 253}
+  m_Layer: 0
+  m_Name: BattingCreaseNorth (Popping Crease)
+  m_TagString: Untagged
+--- !u!4 &251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.045, z: -8.84}
+  m_LocalScale: {x: 3.66, y: 0.01, z: 0.08}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 4
+--- !u!33 &252
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &253
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000003, type: 2}
+--- !u!1 &260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 261}
+  - component: {fileID: 262}
+  - component: {fileID: 263}
+  m_Layer: 0
+  m_Name: BattingCreaseSouth (Popping Crease)
+  m_TagString: Untagged
+--- !u!4 &261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.045, z: 8.84}
+  m_LocalScale: {x: 3.66, y: 0.01, z: 0.08}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 5
+--- !u!33 &262
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &263
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000003, type: 2}
+--- !u!1 &270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 271}
+  - component: {fileID: 272}
+  - component: {fileID: 273}
+  m_Layer: 0
+  m_Name: StumpsNorth (Bowler End)
+  m_TagString: Untagged
+--- !u!4 &271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.355, z: -10.06}
+  m_LocalScale: {x: 0.23, y: 0.71, z: 0.04}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 6
+--- !u!33 &272
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &273
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000008, type: 2}
+--- !u!1 &280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281}
+  - component: {fileID: 282}
+  - component: {fileID: 283}
+  m_Layer: 0
+  m_Name: StumpsSouth (Striker End)
+  m_TagString: Untagged
+--- !u!4 &281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.355, z: 10.06}
+  m_LocalScale: {x: 0.23, y: 0.71, z: 0.04}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 7
+--- !u!33 &282
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &283
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000008, type: 2}
+--- !u!1 &290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291}
+  - component: {fileID: 292}
+  - component: {fileID: 293}
+  m_Layer: 0
+  m_Name: Boundary (70m Rope)
+  m_TagString: Untagged
+--- !u!4 &291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 13.8, y: 0.15, z: 13.8}
+  m_Children: []
+  m_Father: {fileID: 201}
+  m_RootOrder: 8
+--- !u!33 &292
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &293
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000004, type: 2}
+--- !u!1 &300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301}
+  - component: {fileID: 302}
+  m_Layer: 0
+  m_Name: GameplayPositions
+  m_TagString: Untagged
+--- !u!4 &301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 311}
+  - {fileID: 312}
+  - {fileID: 313}
+  - {fileID: 314}
+  - {fileID: 315}
+  - {fileID: 316}
+  - {fileID: 317}
+  - {fileID: 321}
+  - {fileID: 322}
+  - {fileID: 323}
+  - {fileID: 324}
+  - {fileID: 325}
+  - {fileID: 326}
+  - {fileID: 327}
+  - {fileID: 328}
+  - {fileID: 329}
+  - {fileID: 330}
+  - {fileID: 331}
+  - {fileID: 332}
+  - {fileID: 333}
+  - {fileID: 334}
+  - {fileID: 335}
+  - {fileID: 336}
+  - {fileID: 337}
+  - {fileID: 338}
+  - {fileID: 339}
+  - {fileID: 340}
+  m_Father: {fileID: 101}
+  m_RootOrder: 1
+--- !u!114 &302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: p0010000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Fielding:CricketPositionManager
+  pitchCenter: {fileID: 221}
+  bowlerStartPosition: {fileID: 311}
+  bowlerReleasePosition: {fileID: 312}
+  strikerPosition: {fileID: 313}
+  nonStrikerPosition: {fileID: 314}
+  wicketKeeperPosition: {fileID: 315}
+  umpireBowlerEndPosition: {fileID: 316}
+  umpireBatsmanEndPosition: {fileID: 317}
+  boundaryRadius: 70
+  boundaryCenter: {fileID: 201}
+  bowlerAnchor: {fileID: 321}
+  wicketKeeperAnchor: {fileID: 322}
+  slip1Anchor: {fileID: 323}
+  slip2Anchor: {fileID: 324}
+  slip3Anchor: {fileID: 325}
+  gullyAnchor: {fileID: 326}
+  pointAnchor: {fileID: 327}
+  coverAnchor: {fileID: 328}
+  extraCoverAnchor: {fileID: 329}
+  midOffAnchor: {fileID: 330}
+  midOnAnchor: {fileID: 331}
+  midWicketAnchor: {fileID: 332}
+  squareLegAnchor: {fileID: 333}
+  fineLegAnchor: {fileID: 334}
+  thirdManAnchor: {fileID: 335}
+  longOffAnchor: {fileID: 336}
+  longOnAnchor: {fileID: 337}
+  deepCoverAnchor: {fileID: 338}
+  deepMidWicketAnchor: {fileID: 339}
+  deepSquareLegAnchor: {fileID: 340}
+--- !u!4 &311
+Transform:
+  m_Name: BowlerStartPosition
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 0, y: 0, z: -25}
+  m_Father: {fileID: 301}
+--- !u!4 &312
+Transform:
+  m_Name: BowlerReleasePosition
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 0, y: 1.8, z: -10.06}
+  m_Father: {fileID: 301}
+--- !u!4 &313
+Transform:
+  m_Name: StrikerPosition
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 0, y: 0, z: 8.84}
+  m_Father: {fileID: 301}
+--- !u!4 &314
+Transform:
+  m_Name: NonStrikerPosition
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -1.2, y: 0, z: -8.84}
+  m_Father: {fileID: 301}
+--- !u!4 &315
+Transform:
+  m_Name: WicketKeeperPosition
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 0, y: 0, z: 12.5}
+  m_Father: {fileID: 301}
+--- !u!4 &316
+Transform:
+  m_Name: UmpireBowlerEndPosition
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 0, y: 0, z: -12.5}
+  m_Father: {fileID: 301}
+--- !u!4 &317
+Transform:
+  m_Name: UmpireBatsmanEndPosition
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -8, y: 0, z: 8.84}
+  m_Father: {fileID: 301}
+--- !u!4 &321
+Transform:
+  m_Name: Bowler
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 0, y: 0, z: -9}
+  m_Father: {fileID: 301}
+--- !u!4 &322
+Transform:
+  m_Name: WicketKeeper
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 0, y: 0, z: 12.5}
+  m_Father: {fileID: 301}
+--- !u!4 &323
+Transform:
+  m_Name: Slip1
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 1.8, y: 0, z: 13.5}
+  m_Father: {fileID: 301}
+--- !u!4 &324
+Transform:
+  m_Name: Slip2
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 3.2, y: 0, z: 13.0}
+  m_Father: {fileID: 301}
+--- !u!4 &325
+Transform:
+  m_Name: Slip3
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 4.5, y: 0, z: 12.5}
+  m_Father: {fileID: 301}
+--- !u!4 &326
+Transform:
+  m_Name: Gully
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 7.5, y: 0, z: 10.0}
+  m_Father: {fileID: 301}
+--- !u!4 &327
+Transform:
+  m_Name: Point
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 18.0, y: 0, z: 4.0}
+  m_Father: {fileID: 301}
+--- !u!4 &328
+Transform:
+  m_Name: Cover
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 22.0, y: 0, z: -6.0}
+  m_Father: {fileID: 301}
+--- !u!4 &329
+Transform:
+  m_Name: ExtraCover
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 16.0, y: 0, z: -18.0}
+  m_Father: {fileID: 301}
+--- !u!4 &330
+Transform:
+  m_Name: MidOff
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 6.0, y: 0, z: -22.0}
+  m_Father: {fileID: 301}
+--- !u!4 &331
+Transform:
+  m_Name: MidOn
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -6.0, y: 0, z: -22.0}
+  m_Father: {fileID: 301}
+--- !u!4 &332
+Transform:
+  m_Name: MidWicket
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -18.0, y: 0, z: -8.0}
+  m_Father: {fileID: 301}
+--- !u!4 &333
+Transform:
+  m_Name: SquareLeg
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -20.0, y: 0, z: 5.0}
+  m_Father: {fileID: 301}
+--- !u!4 &334
+Transform:
+  m_Name: FineLeg
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -12.0, y: 0, z: 18.0}
+  m_Father: {fileID: 301}
+--- !u!4 &335
+Transform:
+  m_Name: ThirdMan
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 35.0, y: 0, z: 45.0}
+  m_Father: {fileID: 301}
+--- !u!4 &336
+Transform:
+  m_Name: LongOff
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 18.0, y: 0, z: -58.0}
+  m_Father: {fileID: 301}
+--- !u!4 &337
+Transform:
+  m_Name: LongOn
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -18.0, y: 0, z: -58.0}
+  m_Father: {fileID: 301}
+--- !u!4 &338
+Transform:
+  m_Name: DeepCover
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: 52.0, y: 0, z: -32.0}
+  m_Father: {fileID: 301}
+--- !u!4 &339
+Transform:
+  m_Name: DeepMidWicket
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -52.0, y: 0, z: -30.0}
+  m_Father: {fileID: 301}
+--- !u!4 &340
+Transform:
+  m_Name: DeepSquareLeg
+  m_GameObject: {fileID: 300}
+  m_LocalPosition: {x: -54.0, y: 0, z: 15.0}
+  m_Father: {fileID: 301}
+--- !u!1 &400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401}
+  m_Layer: 0
+  m_Name: Stadium
+  m_TagString: Untagged
+--- !u!4 &401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 411}
+  - {fileID: 421}
+  - {fileID: 431}
+  - {fileID: 441}
+  - {fileID: 451}
+  - {fileID: 461}
+  m_Father: {fileID: 101}
+  m_RootOrder: 2
+--- !u!1 &410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 411}
+  - component: {fileID: 412}
+  - component: {fileID: 413}
+  m_Layer: 0
+  m_Name: MainStand (North Grandstand)
+  m_TagString: Untagged
+--- !u!4 &411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410}
+  m_LocalRotation: {x: 0.15, y: 0, z: 0, w: 0.98}
+  m_LocalPosition: {x: 0, y: 12, z: -85}
+  m_LocalScale: {x: 95, y: 18, z: 28}
+  m_Children: []
+  m_Father: {fileID: 401}
+  m_RootOrder: 0
+--- !u!33 &412
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &413
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000006, type: 2}
+--- !u!1 &420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421}
+  - component: {fileID: 422}
+  - component: {fileID: 423}
+  m_Layer: 0
+  m_Name: OppositeStand (South Pavilion)
+  m_TagString: Untagged
+--- !u!4 &421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420}
+  m_LocalRotation: {x: -0.15, y: 0, z: 0, w: 0.98}
+  m_LocalPosition: {x: 0, y: 12, z: 85}
+  m_LocalScale: {x: 95, y: 18, z: 28}
+  m_Children: []
+  m_Father: {fileID: 401}
+  m_RootOrder: 1
+--- !u!33 &422
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &423
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000006, type: 2}
+--- !u!1 &430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 431}
+  - component: {fileID: 432}
+  - component: {fileID: 433}
+  m_Layer: 0
+  m_Name: SideStandEast
+  m_TagString: Untagged
+--- !u!4 &431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430}
+  m_LocalRotation: {x: 0, y: 0, z: -0.15, w: 0.98}
+  m_LocalPosition: {x: 85, y: 12, z: 0}
+  m_LocalScale: {x: 28, y: 18, z: 95}
+  m_Children: []
+  m_Father: {fileID: 401}
+  m_RootOrder: 2
+--- !u!33 &432
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &433
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000006, type: 2}
+--- !u!1 &440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441}
+  - component: {fileID: 442}
+  - component: {fileID: 443}
+  m_Layer: 0
+  m_Name: SideStandWest
+  m_TagString: Untagged
+--- !u!4 &441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440}
+  m_LocalRotation: {x: 0, y: 0, z: 0.15, w: 0.98}
+  m_LocalPosition: {x: -85, y: 12, z: 0}
+  m_LocalScale: {x: 28, y: 18, z: 95}
+  m_Children: []
+  m_Father: {fileID: 401}
+  m_RootOrder: 3
+--- !u!33 &442
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &443
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000006, type: 2}
+--- !u!1 &450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451}
+  - component: {fileID: 452}
+  - component: {fileID: 453}
+  m_Layer: 0
+  m_Name: VIPArea (Media Center & Boxes)
+  m_TagString: Untagged
+--- !u!4 &451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 22, z: 88}
+  m_LocalScale: {x: 35, y: 8, z: 12}
+  m_Children: []
+  m_Father: {fileID: 401}
+  m_RootOrder: 4
+--- !u!33 &452
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &453
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000005, type: 2}
+--- !u!1 &460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 461}
+  - component: {fileID: 462}
+  - component: {fileID: 463}
+  m_Layer: 0
+  m_Name: StadiumScoreboard (Tower)
+  m_TagString: Untagged
+--- !u!4 &461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 58, y: 18, z: 62}
+  m_LocalScale: {x: 18, y: 12, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 401}
+  m_RootOrder: 5
+--- !u!33 &462
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &463
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000009, type: 2}
+--- !u!1 &500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501}
+  - component: {fileID: 502}
+  m_Layer: 0
+  m_Name: Crowd
+  m_TagString: Untagged
+--- !u!4 &501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 511}
+  - {fileID: 521}
+  m_Father: {fileID: 101}
+  m_RootOrder: 3
+--- !u!114 &502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0010000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Stadiums:CrowdManager
+  currentDensity: 2
+  crowdStandSections:
+  - {fileID: 510}
+  - {fileID: 520}
+  crowdExcitementLevel: 0.5
+--- !u!1 &510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 511}
+  - component: {fileID: 512}
+  - component: {fileID: 513}
+  m_Layer: 0
+  m_Name: CrowdSectionNorth
+  m_TagString: Untagged
+--- !u!4 &511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510}
+  m_LocalRotation: {x: 0.15, y: 0, z: 0, w: 0.98}
+  m_LocalPosition: {x: 0, y: 13, z: -84}
+  m_LocalScale: {x: 90, y: 15, z: 24}
+  m_Children: []
+  m_Father: {fileID: 501}
+  m_RootOrder: 0
+--- !u!33 &512
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &513
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000010, type: 2}
+--- !u!1 &520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521}
+  - component: {fileID: 522}
+  - component: {fileID: 523}
+  m_Layer: 0
+  m_Name: CrowdSectionSouth
+  m_TagString: Untagged
+--- !u!4 &521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520}
+  m_LocalRotation: {x: -0.15, y: 0, z: 0, w: 0.98}
+  m_LocalPosition: {x: 0, y: 13, z: 84}
+  m_LocalScale: {x: 90, y: 15, z: 24}
+  m_Children: []
+  m_Father: {fileID: 501}
+  m_RootOrder: 1
+--- !u!33 &522
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &523
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000010, type: 2}
+--- !u!1 &600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601}
+  m_Layer: 0
+  m_Name: AdvertisingBoards
+  m_TagString: Untagged
+--- !u!4 &601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 611}
+  - {fileID: 621}
+  - {fileID: 631}
+  - {fileID: 641}
+  m_Father: {fileID: 101}
+  m_RootOrder: 4
+--- !u!1 &610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611}
+  - component: {fileID: 612}
+  - component: {fileID: 613}
+  - component: {fileID: 614}
+  m_Layer: 0
+  m_Name: AdBoard_0_CRICKET_CAREER
+  m_TagString: Untagged
+--- !u!4 &611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -70.5}
+  m_LocalScale: {x: 20, y: 1.0, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 601}
+  m_RootOrder: 0
+--- !u!33 &612
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &613
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000009, type: 2}
+--- !u!114 &614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0010000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Stadiums:AdvertisingBoard
+  brandName: CRICKET CAREER
+  boardIndex: 0
+--- !u!1 &620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621}
+  - component: {fileID: 622}
+  - component: {fileID: 623}
+  - component: {fileID: 624}
+  m_Layer: 0
+  m_Name: AdBoard_1_CC_SPORTS
+  m_TagString: Untagged
+--- !u!4 &621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 70.5}
+  m_LocalScale: {x: 20, y: 1.0, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 601}
+  m_RootOrder: 1
+--- !u!33 &622
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &623
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000009, type: 2}
+--- !u!114 &624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0010000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Stadiums:AdvertisingBoard
+  brandName: CC SPORTS
+  boardIndex: 1
+--- !u!1 &630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631}
+  - component: {fileID: 632}
+  - component: {fileID: 633}
+  - component: {fileID: 634}
+  m_Layer: 0
+  m_Name: AdBoard_2_WORLD_CRICKET
+  m_TagString: Untagged
+--- !u!4 &631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630}
+  m_LocalRotation: {x: 0, y: 0.7071, z: 0, w: 0.7071}
+  m_LocalPosition: {x: 70.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 20, y: 1.0, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 601}
+  m_RootOrder: 2
+--- !u!33 &632
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &633
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000009, type: 2}
+--- !u!114 &634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0010000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Stadiums:AdvertisingBoard
+  brandName: WORLD CRICKET
+  boardIndex: 2
+--- !u!1 &640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641}
+  - component: {fileID: 642}
+  - component: {fileID: 643}
+  - component: {fileID: 644}
+  m_Layer: 0
+  m_Name: AdBoard_3_CAREER_CUP
+  m_TagString: Untagged
+--- !u!4 &641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640}
+  m_LocalRotation: {x: 0, y: -0.7071, z: 0, w: 0.7071}
+  m_LocalPosition: {x: -70.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 20, y: 1.0, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 601}
+  m_RootOrder: 3
+--- !u!33 &642
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &643
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000009, type: 2}
+--- !u!114 &644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0010000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Stadiums:AdvertisingBoard
+  brandName: CAREER CUP
+  boardIndex: 3
+--- !u!1 &700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701}
+  - component: {fileID: 702}
+  - component: {fileID: 703}
+  m_Layer: 0
+  m_Name: Lighting
+  m_TagString: Untagged
+--- !u!4 &701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700}
+  m_LocalRotation: {x: 0.4082, y: -0.2345, z: 0.1093, w: 0.8754}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 711}
+  - {fileID: 721}
+  - {fileID: 731}
+  - {fileID: 741}
+  m_Father: {fileID: 101}
+  m_RootOrder: 5
+--- !u!108 &702
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Color: {r: 1, g: 0.96, b: 0.88, a: 1}
+  m_Intensity: 1.2
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 0.8
+--- !u!114 &703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0010000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Stadiums:FloodlightManager
+  floodlightSources:
+  - {fileID: 712}
+  - {fileID: 722}
+  - {fileID: 732}
+  - {fileID: 742}
+  areFloodlightsOn: 0
+  defaultNightIntensity: 2
+  lightColor: {r: 0.9, g: 0.95, b: 1, a: 1}
+--- !u!1 &710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711}
+  - component: {fileID: 712}
+  - component: {fileID: 713}
+  - component: {fileID: 714}
+  m_Layer: 0
+  m_Name: FloodlightTower_NE
+  m_TagString: Untagged
+--- !u!4 &711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710}
+  m_LocalRotation: {x: 0.35, y: -0.35, z: 0.15, w: 0.85}
+  m_LocalPosition: {x: 65, y: 35, z: 65}
+  m_LocalScale: {x: 2.5, y: 35, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 701}
+  m_RootOrder: 0
+--- !u!108 &712
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710}
+  m_Enabled: 0
+  serializedVersion: 10
+  m_Type: 0
+  m_Color: {r: 0.9, g: 0.95, b: 1, a: 1}
+  m_Intensity: 2
+  m_Range: 120
+  m_SpotAngle: 65
+--- !u!33 &713
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &714
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000007, type: 2}
+--- !u!1 &720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721}
+  - component: {fileID: 722}
+  - component: {fileID: 723}
+  - component: {fileID: 724}
+  m_Layer: 0
+  m_Name: FloodlightTower_NW
+  m_TagString: Untagged
+--- !u!4 &721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720}
+  m_LocalRotation: {x: 0.35, y: 0.35, z: -0.15, w: 0.85}
+  m_LocalPosition: {x: -65, y: 35, z: 65}
+  m_LocalScale: {x: 2.5, y: 35, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 701}
+  m_RootOrder: 1
+--- !u!108 &722
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720}
+  m_Enabled: 0
+  serializedVersion: 10
+  m_Type: 0
+  m_Color: {r: 0.9, g: 0.95, b: 1, a: 1}
+  m_Intensity: 2
+  m_Range: 120
+  m_SpotAngle: 65
+--- !u!33 &723
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &724
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000007, type: 2}
+--- !u!1 &730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731}
+  - component: {fileID: 732}
+  - component: {fileID: 733}
+  - component: {fileID: 734}
+  m_Layer: 0
+  m_Name: FloodlightTower_SE
+  m_TagString: Untagged
+--- !u!4 &731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730}
+  m_LocalRotation: {x: -0.35, y: -0.35, z: -0.15, w: 0.85}
+  m_LocalPosition: {x: 65, y: 35, z: -65}
+  m_LocalScale: {x: 2.5, y: 35, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 701}
+  m_RootOrder: 2
+--- !u!108 &732
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730}
+  m_Enabled: 0
+  serializedVersion: 10
+  m_Type: 0
+  m_Color: {r: 0.9, g: 0.95, b: 1, a: 1}
+  m_Intensity: 2
+  m_Range: 120
+  m_SpotAngle: 65
+--- !u!33 &733
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &734
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000007, type: 2}
+--- !u!1 &740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741}
+  - component: {fileID: 742}
+  - component: {fileID: 743}
+  - component: {fileID: 744}
+  m_Layer: 0
+  m_Name: FloodlightTower_SW
+  m_TagString: Untagged
+--- !u!4 &741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740}
+  m_LocalRotation: {x: -0.35, y: 0.35, z: 0.15, w: 0.85}
+  m_LocalPosition: {x: -65, y: 35, z: -65}
+  m_LocalScale: {x: 2.5, y: 35, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 701}
+  m_RootOrder: 3
+--- !u!108 &742
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740}
+  m_Enabled: 0
+  serializedVersion: 10
+  m_Type: 0
+  m_Color: {r: 0.9, g: 0.95, b: 1, a: 1}
+  m_Intensity: 2
+  m_Range: 120
+  m_SpotAngle: 65
+--- !u!33 &743
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &744
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000007, type: 2}
+--- !u!1 &800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 801}
+  - component: {fileID: 802}
+  m_Layer: 0
+  m_Name: Cameras
+  m_TagString: Untagged
+--- !u!4 &801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 811}
+  - {fileID: 821}
+  - {fileID: 831}
+  - {fileID: 841}
+  m_Father: {fileID: 101}
+  m_RootOrder: 6
+--- !u!114 &802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0020000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CricketGame.Camera:CricketCameraManager
+  gameplayCamera: {fileID: 812}
+  currentMode: 0
+  broadcastCameraAnchor: {fileID: 821}
+  battingCameraAnchor: {fileID: 831}
+  bowlingCameraAnchor: {fileID: 841}
+  transitionSpeed: 8
+  smoothTransitions: 1
+--- !u!1 &810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811}
+  - component: {fileID: 812}
+  m_Layer: 0
+  m_Name: ActiveGameplayCamera
+  m_TagString: MainCamera
+--- !u!4 &811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810}
+  m_LocalRotation: {x: 0.19, y: 0, z: 0, w: 0.98}
+  m_LocalPosition: {x: 0, y: 14, z: -28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 801}
+  m_RootOrder: 0
+--- !u!20 &812
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.35, g: 0.55, b: 0.85, a: 1}
+  field of view: 55
+  near clip plane: 0.3
+  far clip plane: 1000
+--- !u!1 &820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 821}
+  m_Layer: 0
+  m_Name: BroadcastCameraAnchor
+  m_TagString: Untagged
+--- !u!4 &821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820}
+  m_LocalRotation: {x: 0.19, y: 0, z: 0, w: 0.98}
+  m_LocalPosition: {x: 0, y: 14, z: -28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 801}
+  m_RootOrder: 1
+--- !u!1 &830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831}
+  m_Layer: 0
+  m_Name: BattingCameraAnchor
+  m_TagString: Untagged
+--- !u!4 &831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830}
+  m_LocalRotation: {x: 0.07, y: 0.99, z: -0.07, w: 0.07}
+  m_LocalPosition: {x: 0.4, y: 2.2, z: 14.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 801}
+  m_RootOrder: 2
+--- !u!1 &840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841}
+  m_Layer: 0
+  m_Name: BowlingCameraAnchor
+  m_TagString: Untagged
+--- !u!4 &841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840}
+  m_LocalRotation: {x: 0.07, y: 0, z: 0, w: 0.99}
+  m_LocalPosition: {x: 0, y: 3.0, z: -18.0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 801}
+  m_RootOrder: 3
+--- !u!1 &900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 901}
+  - component: {fileID: 902}
+  - component: {fileID: 903}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+--- !u!4 &901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 35, y: 1, z: 35}
+  m_Children: []
+  m_Father: {fileID: 101}
+  m_RootOrder: 7
+--- !u!33 &902
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &903
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 21000000000000000000000000000005, type: 2}

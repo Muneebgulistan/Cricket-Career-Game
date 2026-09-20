@@ -29,6 +29,14 @@ namespace CricketGame.Players
         public CareerLevel currentLevel;
         public string currentTeam;
 
+        // Physical & Match Traits
+        public PlayerHand playerHand = PlayerHand.Right;
+        public float height = 1.80f;
+        public float weight = 75.0f;
+        public int jerseyNumber = 10;
+        public bool isCaptain = false;
+        public bool isWicketKeeper = false;
+
         public PlayerProfile()
         {
             id = Guid.NewGuid().ToString();
@@ -62,8 +70,12 @@ namespace CricketGame.Players
             battingStyle = batStyle;
             bowlingStyle = bowlStyle;
 
+            battingRating = 60;
+            bowlingRating = 50;
+            fieldingRating = 55;
             RecalculateOverallRating();
             fitness = 100;
+
             form = 75;
             experience = 0;
             currentLevel = CareerLevel.Under16Cup;

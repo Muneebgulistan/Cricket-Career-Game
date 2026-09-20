@@ -14,8 +14,10 @@ describe('Step 3 — Bowling Accuracy & Power Meter', () => {
     nationality: 'Pakistan',
   });
   dummyBowler.bowlingStyle = BowlingStyle.LEFT_ARM_FAST;
+  dummyBowler.bowling.accuracy = 99;
 
   it('should deliver on intended spot with high meter quality', () => {
+
     const result = BowlingEngine.executeDelivery(
       {
         line: DeliveryLine.OUTSIDE_OFF,

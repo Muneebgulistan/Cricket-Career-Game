@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/BattingPrototype.unity
     guid: 10000000000000000000000000000009
+  - enabled: 1
+    path: Assets/_Game/Scenes/BowlingPrototype.unity
+    guid: 10000000000000000000000000000014
+  - enabled: 1
+    path: Assets/Scenes/Gameplay/BowlingPrototype.unity
+    guid: 10000000000000000000000000000015
   m_configObjects: {}
 
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using CricketGame.Cricket;
 
 namespace CricketGame.Players
@@ -31,6 +31,27 @@ namespace CricketGame.Players
         public bool isWicketKeeper = false;
 
         public PlayerProfile SourceProfile { get; private set; }
+        public PlayerProfile Profile { get { return ToProfile(); } }
+
+        public PlayerProfile ToProfile()
+        {
+            if (SourceProfile != null) return SourceProfile;
+            PlayerProfile p = new PlayerProfile(playerName, age, nationality, playingRole, BattingStyle.RightHand, BowlingStyle.None);
+            p.overallRating = overallRating;
+            p.battingRating = battingRating;
+            p.bowlingRating = bowlingRating;
+            p.fieldingRating = fieldingRating;
+            p.fitness = fitness;
+            p.form = form;
+            p.experience = experience;
+            p.playerHand = playerHand;
+            p.height = height;
+            p.weight = weight;
+            p.jerseyNumber = jerseyNumber;
+            p.isCaptain = isCaptain;
+            p.isWicketKeeper = isWicketKeeper;
+            return p;
+        }
 
         public void Initialize(PlayerProfile profile)
         {

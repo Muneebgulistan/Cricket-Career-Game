@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Testing/PlayerPrototype.unity
     guid: 10000000000000000000000000000007
+  - enabled: 1
+    path: Assets/Scenes/Gameplay/BattingPrototype.unity
+    guid: 10000000000000000000000000000008
+  - enabled: 1
+    path: Assets/_Game/Scenes/BattingPrototype.unity
+    guid: 10000000000000000000000000000009
   m_configObjects: {}
 
 

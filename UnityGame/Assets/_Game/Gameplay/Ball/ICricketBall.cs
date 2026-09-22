@@ -19,6 +19,9 @@ namespace CricketGame.Gameplay.Ball
         void ResetBall(Vector3 position);
         void LaunchDelivery(BowlingReleaseData releaseData);
         void DeliverBall(Vector3 releasePos, Vector3 targetPitchSpot, float speedKph, float lateralCurve);
+        void PickUpBall(Transform holder = null);
+        void LaunchThrow(Vector3 origin, Vector3 throwVelocity);
+        void StopBall();
 
         event Action<BallState> OnBallStateChanged;
         event Action<Vector3> OnPitchBounce;

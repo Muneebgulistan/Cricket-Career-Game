@@ -17,6 +17,15 @@ namespace CricketGame.Players
         public int bowlingRating = 40;
         public int fieldingRating = 50;
 
+        [Header("Fielding Runtime Attributes")]
+        public int reaction = 50;
+        public int speed = 60;
+        public int agility = 55;
+        public int throwPower = 60;
+        public int throwAccuracy = 55;
+        public int catching = 50;
+        public int groundFielding = 55;
+
         [Header("Condition")]
         public int fitness = 100;
         public int form = 75;
@@ -67,6 +76,14 @@ namespace CricketGame.Players
             battingRating = profile.battingRating;
             bowlingRating = profile.bowlingRating;
             fieldingRating = profile.fieldingRating;
+
+            reaction = profile.fieldingRating;
+            speed = Mathf.Clamp((profile.fitness + profile.overallRating) / 2, 30, 99);
+            agility = profile.fieldingRating;
+            throwPower = profile.fieldingRating;
+            throwAccuracy = profile.fieldingRating;
+            catching = profile.fieldingRating;
+            groundFielding = profile.fieldingRating;
 
             fitness = profile.fitness;
             form = profile.form;

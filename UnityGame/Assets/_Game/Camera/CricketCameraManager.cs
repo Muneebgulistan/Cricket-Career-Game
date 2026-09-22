@@ -162,6 +162,14 @@ namespace CricketGame.Camera
                     targetPosition = new Vector3(0f, 3.0f, -18f);
                     targetRotation = Quaternion.Euler(8f, 0f, 0f);
                     break;
+                case CricketCameraMode.FieldCamera:
+                    targetPosition = new Vector3(0f, 16f, -32f);
+                    targetRotation = Quaternion.Euler(24f, 0f, 0f);
+                    break;
+                case CricketCameraMode.WicketCamera:
+                    targetPosition = new Vector3(0f, 2.5f, 15f);
+                    targetRotation = Quaternion.Euler(6f, 180f, 0f);
+                    break;
             }
         }
 

@@ -38,6 +38,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay/BowlingPrototype.unity
     guid: 10000000000000000000000000000015
+  - enabled: 1
+    path: Assets/_Game/Scenes/FieldingPrototype.unity
+    guid: 10000000000000000000000000000016
+  - enabled: 1
+    path: Assets/Scenes/Gameplay/FieldingPrototype.unity
+    guid: 10000000000000000000000000000017
   m_configObjects: {}
 
 

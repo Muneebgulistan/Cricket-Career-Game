@@ -122,6 +122,42 @@ namespace CricketGame.Gameplay.Ball
             SetState(BallState.Held);
         }
 
+        public void PickUpBall(Transform holder = null)
+        {
+            isInPlay = false;
+            velocity = Vector3.zero;
+            swingAcceleration = 0f;
+            if (holder != null)
+            {
+                transform.position = holder.position;
+            }
+            SetState(BallState.Held);
+        }
+
+        public void LaunchThrow(Vector3 origin, Vector3 throwVelocity)
+        {
+            transform.position = origin;
+            velocity = throwVelocity;
+            initialSpeedKph = throwVelocity.magnitude * 3.6f;
+            swingAcceleration = 0f;
+            seamDeviationAngle = 0f;
+            spinTurnAngle = 0f;
+            bounceMultiplier = 0.8f;
+
+            isInPlay = true;
+            hasBounced = false;
+            hasHitBat = false;
+
+            SetState(BallState.InFlight);
+        }
+
+        public void StopBall()
+        {
+            velocity = Vector3.zero;
+            isInPlay = false;
+            SetState(BallState.Dead);
+        }
+
         private void Update()
         {
             if (!isInPlay) return;

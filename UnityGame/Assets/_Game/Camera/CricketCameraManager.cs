@@ -19,6 +19,8 @@ namespace CricketGame.Camera
         public Transform bowlingCameraAnchor;
         public Transform fieldCameraAnchor;
         public Transform wicketCameraAnchor;
+        public Transform ballFollowCameraAnchor;
+        public Transform runningCameraAnchor;
 
         [Header("Transition Settings")]
         [SerializeField] private float transitionSpeed = 8.0f;
@@ -132,6 +134,14 @@ namespace CricketGame.Camera
                     anchor = wicketCameraAnchor;
                     targetFOV = 50f;
                     break;
+                case CricketCameraMode.BallFollowCamera:
+                    anchor = ballFollowCameraAnchor;
+                    targetFOV = 60f;
+                    break;
+                case CricketCameraMode.RunningCamera:
+                    anchor = runningCameraAnchor;
+                    targetFOV = 55f;
+                    break;
             }
 
             if (anchor != null)
@@ -169,6 +179,38 @@ namespace CricketGame.Camera
                 case CricketCameraMode.WicketCamera:
                     targetPosition = new Vector3(0f, 2.5f, 15f);
                     targetRotation = Quaternion.Euler(6f, 180f, 0f);
+                    break;
+                case CricketCameraMode.BallFollowCamera:
+                    targetPosition = new Vector3(0f, 8f, -12f);
+                    targetRotation = Quaternion.Euler(30f, 0f, 0f);
+                    break;
+                case CricketCameraMode.RunningCamera:
+                    targetPosition = new Vector3(14f, 4f, 0f);
+                    targetRotation = Quaternion.Euler(15f, -90f, 0f);
+                    break;
+            }
+        }
+
+        public void HandleMatchPhaseCameraTransition(CricketGame.Gameplay.Match.MatchPhase phase)
+        {
+            switch (phase)
+            {
+                case CricketGame.Gameplay.Match.MatchPhase.Preparation:
+                case CricketGame.Gameplay.Match.MatchPhase.BowlerRunUp:
+                    SwitchCameraMode(CricketCameraMode.BattingCamera);
+                    break;
+                case CricketGame.Gameplay.Match.MatchPhase.BallInFlight:
+                case CricketGame.Gameplay.Match.MatchPhase.BattingStrike:
+                    SwitchCameraMode(CricketCameraMode.BattingCamera);
+                    break;
+                case CricketGame.Gameplay.Match.MatchPhase.FieldingInterception:
+                    SwitchCameraMode(CricketCameraMode.BallFollowCamera);
+                    break;
+                case CricketGame.Gameplay.Match.MatchPhase.RunningWickets:
+                    SwitchCameraMode(CricketCameraMode.RunningCamera);
+                    break;
+                case CricketGame.Gameplay.Match.MatchPhase.DeliveryResolution:
+                    SwitchCameraMode(CricketCameraMode.BroadcastCamera);
                     break;
             }
         }

@@ -26,17 +26,17 @@ namespace CricketGame.Gameplay.Running
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.R) || UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
                 RequestRun();
             }
 
-            if (Input.GetKeyDown(KeyCode.D))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.D))
             {
                 RequestDive();
             }
 
-            if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.C) || UnityEngine.Input.GetKeyDown(KeyCode.Escape))
             {
                 RequestCancel();
             }

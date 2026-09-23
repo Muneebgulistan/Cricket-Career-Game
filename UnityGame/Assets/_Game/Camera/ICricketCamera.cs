@@ -9,7 +9,9 @@ namespace CricketGame.Camera
         BowlingCamera,
         FieldCamera,
         WicketCamera,
-        ReplayCamera
+        ReplayCamera,
+        BallFollowCamera,
+        RunningCamera
     }
 
     public interface ICricketCamera

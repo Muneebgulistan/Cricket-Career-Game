@@ -56,6 +56,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay/MatchPrototype.unity
     guid: 10000000000000000000000000000021
+  - enabled: 1
+    path: Assets/_Game/Scenes/MobileMatchPrototype.unity
+    guid: 10000000000000000000000000000022
+  - enabled: 1
+    path: Assets/Scenes/Gameplay/MobileMatchPrototype.unity
+    guid: 10000000000000000000000000000023
   m_configObjects: {}
 
 

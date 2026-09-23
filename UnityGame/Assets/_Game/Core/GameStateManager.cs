@@ -7,8 +7,11 @@ namespace CricketGame.Core
     {
         public static GameStateManager Instance { get; private set; }
 
-        public GameState CurrentState { get; private set; } = GameState.Booting;
-        public GameState PreviousState { get; private set; } = GameState.Booting;
+        private GameState currentState = GameState.Booting;
+        private GameState previousState = GameState.Booting;
+
+        public GameState CurrentState { get { return currentState; } }
+        public GameState PreviousState { get { return previousState; } }
 
         public event Action<GameState, GameState> OnStateChanged;
 
@@ -26,20 +29,23 @@ namespace CricketGame.Core
 
         public void ChangeState(GameState newState)
         {
-            if (CurrentState == newState) return;
+            if (currentState == newState) return;
 
-            PreviousState = CurrentState;
-            CurrentState = newState;
+            previousState = currentState;
+            currentState = newState;
 
-            Debug.Log($"[GameStateManager] Transition: {PreviousState} -> {CurrentState}");
-            OnStateChanged?.Invoke(PreviousState, CurrentState);
+            Debug.Log(string.Format("[GameStateManager] Transition: {0} -> {1}", previousState, currentState));
+            if (OnStateChanged != null)
+            {
+                OnStateChanged(previousState, currentState);
+            }
         }
 
         public bool IsInMatch()
         {
-            return CurrentState == GameState.PlayingMatch || 
-                   CurrentState == GameState.MatchPaused || 
-                   CurrentState == GameState.MatchLoading;
+            return currentState == GameState.PlayingMatch || 
+                   currentState == GameState.MatchPaused || 
+                   currentState == GameState.MatchLoading;
         }
     }
 }

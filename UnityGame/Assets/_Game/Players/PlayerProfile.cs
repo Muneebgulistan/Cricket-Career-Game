@@ -60,6 +60,29 @@ namespace CricketGame.Players
             currentTeam = "Lahore Eagles U-16";
         }
 
+        public PlayerProfile(string playerName, int playerAge, PlayingRole role)
+        {
+            id = Guid.NewGuid().ToString();
+            name = playerName;
+            age = playerAge;
+            nationality = "Pakistan";
+            playingRole = role;
+            battingStyle = BattingStyle.RightHand;
+            bowlingStyle = BowlingStyle.None;
+            
+            overallRating = 55;
+            battingRating = 60;
+            bowlingRating = 40;
+            fieldingRating = 50;
+            
+            fitness = 100;
+            form = 75;
+            experience = 0;
+            
+            currentLevel = CareerLevel.Under16Cup;
+            currentTeam = "Lahore Eagles U-16";
+        }
+
         public PlayerProfile(string playerName, int playerAge, string playerNationality, PlayingRole role, BattingStyle batStyle, BowlingStyle bowlStyle)
         {
             id = Guid.NewGuid().ToString();

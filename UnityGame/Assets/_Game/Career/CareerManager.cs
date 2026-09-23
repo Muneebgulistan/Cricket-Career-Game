@@ -3,6 +3,13 @@ using UnityEngine;
 using CricketGame.Players;
 using CricketGame.SaveSystem;
 using CricketGame.Cricket;
+using CricketGame.Career.Stages;
+using CricketGame.Career.Rewards;
+using CricketGame.Career.Objectives;
+using CricketGame.Career.Evaluation;
+using CricketGame.Career.Progression;
+using CricketGame.Career.MatchIntegration;
+using CricketGame.Tournaments;
 
 namespace CricketGame.Career
 {
@@ -18,6 +25,8 @@ namespace CricketGame.Career
         }
 
         public event Action<CareerProfile> OnCareerUpdated;
+        public event Action<CareerPerformanceReport> OnMatchEvaluated;
+        public event Action<CareerStage> OnStagePromoted;
 
         private void Awake()
         {
@@ -35,7 +44,7 @@ namespace CricketGame.Career
         {
             ActiveCareer = new CareerProfile(player);
             Debug.Log(string.Format("[CareerManager] Created new career for: {0}", player.name));
-            if (SaveManager.Instance != null) SaveManager.Instance.SaveCareer(ActiveCareer);
+            SaveCurrentCareer();
             if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
         }
 
@@ -47,7 +56,8 @@ namespace CricketGame.Career
             if (loaded != null)
             {
                 ActiveCareer = loaded;
-                Debug.Log(string.Format("[CareerManager] Successfully loaded career for: {0}", ActiveCareer.player.name));
+                string pName = (ActiveCareer.player != null) ? ActiveCareer.player.name : "Unknown";
+                Debug.Log(string.Format("[CareerManager] Successfully loaded career for: {0}", pName));
                 if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
                 return true;
             }
@@ -64,23 +74,86 @@ namespace CricketGame.Career
 
         public void RecordMatchOutcome(MatchResult result)
         {
+            RecordMatchOutcome(result, null);
+        }
+
+        public void RecordMatchOutcome(MatchResult result, TournamentProgress tournament)
+        {
             if (ActiveCareer == null || result == null) return;
 
             var perf = result.userPerformance;
             if (perf != null)
             {
-                ActiveCareer.statistics.RecordMatchBatting(perf.runs, perf.balls, perf.fours, perf.sixes, perf.isOut);
-                ActiveCareer.statistics.RecordMatchBowling(perf.oversBowled, perf.maidens, perf.runsConceded, perf.wickets);
-                ActiveCareer.statistics.RecordMatchFielding(perf.catches, perf.runOuts, perf.stumpings);
+                CareerPerformanceReport report = CareerProgressionEvaluator.ApplyPostMatchProgression(
+                    ActiveCareer, 
+                    perf, 
+                    result, 
+                    tournament);
 
-                // Update condition
-                ActiveCareer.player.form = Mathf.Clamp(ActiveCareer.player.form + (result.isPlayerVictory ? 4 : -2), 10, 100);
-                ActiveCareer.player.fitness = Mathf.Clamp(ActiveCareer.player.fitness - 5, 20, 100);
-                ActiveCareer.player.experience += 10;
+                if (OnMatchEvaluated != null)
+                {
+                    OnMatchEvaluated(report);
+                }
             }
 
             SaveCurrentCareer();
-            if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
+            if (OnCareerUpdated != null)
+            {
+                OnCareerUpdated(ActiveCareer);
+            }
+        }
+
+        public bool AdvanceCareerStage(TournamentProgress tournament)
+        {
+            if (ActiveCareer == null) return false;
+
+            CareerStage newStage;
+            bool promoted = CareerProgressionService.TryPromoteCareer(ActiveCareer, tournament, out newStage);
+            if (promoted)
+            {
+                Debug.Log(string.Format("[CareerManager] Player successfully promoted to stage: {0}", newStage));
+                SaveCurrentCareer();
+
+                if (OnStagePromoted != null)
+                {
+                    OnStagePromoted(newStage);
+                }
+                if (OnCareerUpdated != null)
+                {
+                    OnCareerUpdated(ActiveCareer);
+                }
+            }
+
+            return promoted;
+        }
+
+        public bool ClaimReward(CareerReward reward)
+        {
+            if (ActiveCareer == null || reward == null) return false;
+
+            bool success = reward.Apply(ActiveCareer);
+            if (success)
+            {
+                SaveCurrentCareer();
+                if (OnCareerUpdated != null)
+                {
+                    OnCareerUpdated(ActiveCareer);
+                }
+            }
+            return success;
+        }
+
+        public void AddObjective(CareerObjective objective)
+        {
+            if (ActiveCareer != null && objective != null)
+            {
+                ActiveCareer.AddObjective(objective);
+                SaveCurrentCareer();
+                if (OnCareerUpdated != null)
+                {
+                    OnCareerUpdated(ActiveCareer);
+                }
+            }
         }
     }
 }

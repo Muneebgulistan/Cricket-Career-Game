@@ -44,6 +44,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay/FieldingPrototype.unity
     guid: 10000000000000000000000000000017
+  - enabled: 1
+    path: Assets/_Game/Scenes/RunningPrototype.unity
+    guid: 10000000000000000000000000000018
+  - enabled: 1
+    path: Assets/Scenes/Gameplay/RunningPrototype.unity
+    guid: 10000000000000000000000000000019
+  - enabled: 1
+    path: Assets/_Game/Scenes/MatchPrototype.unity
+    guid: 10000000000000000000000000000020
+  - enabled: 1
+    path: Assets/Scenes/Gameplay/MatchPrototype.unity
+    guid: 10000000000000000000000000000021
   m_configObjects: {}
 
 

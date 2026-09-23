@@ -37,8 +37,8 @@ namespace CricketGame.Core
 
         private IEnumerator LoadSceneRoutine(string sceneName)
         {
-            Debug.Log($"[SceneController] Loading scene: {sceneName}");
-            OnSceneLoadStarted?.Invoke(sceneName);
+            Debug.Log(string.Format("[SceneController] Loading scene: {0}", sceneName));
+            if (OnSceneLoadStarted != null) OnSceneLoadStarted(sceneName);
 
             AsyncOperation asyncOp = SceneManager.LoadSceneAsync(sceneName);
             while (!asyncOp.isDone)
@@ -46,8 +46,8 @@ namespace CricketGame.Core
                 yield return null;
             }
 
-            Debug.Log($"[SceneController] Scene loaded successfully: {sceneName}");
-            OnSceneLoadCompleted?.Invoke(sceneName);
+            Debug.Log(string.Format("[SceneController] Scene loaded successfully: {0}", sceneName));
+            if (OnSceneLoadCompleted != null) OnSceneLoadCompleted(sceneName);
         }
     }
 }

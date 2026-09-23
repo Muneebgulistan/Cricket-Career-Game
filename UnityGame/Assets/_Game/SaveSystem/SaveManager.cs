@@ -48,13 +48,13 @@ namespace CricketGame.SaveSystem
             {
                 string json = JsonUtility.ToJson(profile, true);
                 File.WriteAllText(SaveFilePath, json);
-                Debug.Log($"[SaveManager] Career saved successfully to: {SaveFilePath}");
-                OnCareerSaved?.Invoke();
+                Debug.Log(string.Format("[SaveManager] Career saved successfully to: {0}", SaveFilePath));
+                if (OnCareerSaved != null) OnCareerSaved();
                 return true;
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[SaveManager] Error saving career: {ex.Message}");
+                Debug.LogError(string.Format("[SaveManager] Error saving career: {0}", ex.Message));
                 return false;
             }
         }
@@ -71,13 +71,14 @@ namespace CricketGame.SaveSystem
             {
                 string json = File.ReadAllText(SaveFilePath);
                 CareerProfile profile = JsonUtility.FromJson<CareerProfile>(json);
-                Debug.Log($"[SaveManager] Career loaded successfully for player: {profile.player?.name}");
-                OnCareerLoaded?.Invoke();
+                string pName = (profile != null && profile.player != null) ? profile.player.name : "Unknown";
+                Debug.Log(string.Format("[SaveManager] Career loaded successfully for player: {0}", pName));
+                if (OnCareerLoaded != null) OnCareerLoaded();
                 return profile;
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[SaveManager] Failed to load career save file: {ex.Message}");
+                Debug.LogError(string.Format("[SaveManager] Failed to load career save file: {0}", ex.Message));
                 return null;
             }
         }
@@ -96,7 +97,7 @@ namespace CricketGame.SaveSystem
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[SaveManager] Error deleting save: {ex.Message}");
+                Debug.LogError(string.Format("[SaveManager] Error deleting save: {0}", ex.Message));
                 return false;
             }
         }

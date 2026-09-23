@@ -71,4 +71,12 @@ namespace CricketGame.Cricket
         Spin,
         None
     }
+
+    public enum PitchType
+    {
+        Standard,
+        Green,
+        Dusty,
+        Dead
+    }
 }

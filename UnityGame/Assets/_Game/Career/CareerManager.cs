@@ -34,9 +34,9 @@ namespace CricketGame.Career
         public void CreateNewCareer(PlayerProfile player)
         {
             ActiveCareer = new CareerProfile(player);
-            Debug.Log($"[CareerManager] Created new career for: {player.name}");
-            SaveManager.Instance?.SaveCareer(ActiveCareer);
-            OnCareerUpdated?.Invoke(ActiveCareer);
+            Debug.Log(string.Format("[CareerManager] Created new career for: {0}", player.name));
+            if (SaveManager.Instance != null) SaveManager.Instance.SaveCareer(ActiveCareer);
+            if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
         }
 
         public bool LoadExistingCareer()
@@ -47,8 +47,8 @@ namespace CricketGame.Career
             if (loaded != null)
             {
                 ActiveCareer = loaded;
-                Debug.Log($"[CareerManager] Successfully loaded career for: {ActiveCareer.player.name}");
-                OnCareerUpdated?.Invoke(ActiveCareer);
+                Debug.Log(string.Format("[CareerManager] Successfully loaded career for: {0}", ActiveCareer.player.name));
+                if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
                 return true;
             }
             return false;
@@ -80,7 +80,7 @@ namespace CricketGame.Career
             }
 
             SaveCurrentCareer();
-            OnCareerUpdated?.Invoke(ActiveCareer);
+            if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
         }
     }
 }

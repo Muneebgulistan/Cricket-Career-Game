@@ -141,6 +141,36 @@ namespace CricketGame.Career.Tournaments
             }
         }
 
+        public TournamentFixture GetNextUserTournamentFixture(string userTeamName)
+        {
+            if (activeTournament == null || activeTournament.fixtures == null) return null;
+
+            for (int i = 0; i < activeTournament.fixtures.Count; i++)
+            {
+                var f = activeTournament.fixtures[i];
+                if (!f.isCompleted && (string.Equals(f.homeTeamName, userTeamName, StringComparison.OrdinalIgnoreCase) || 
+                                       string.Equals(f.awayTeamName, userTeamName, StringComparison.OrdinalIgnoreCase)))
+                {
+                    string venueName = (i % 2 == 0) ? "Gaddafi Stadium" : "National Stadium";
+                    return TournamentFixture.FromFixtureData(f, i + 1, venueName);
+                }
+            }
+            return null;
+        }
+
+        public void SetActiveTournament(TournamentProgress tournament)
+        {
+            if (tournament == null) return;
+            activeTournament = tournament;
+            if (standingsTable == null) standingsTable = new TournamentTable();
+            standingsTable.standings = activeTournament.standings;
+
+            if (OnTournamentUpdated != null)
+            {
+                OnTournamentUpdated(activeTournament);
+            }
+        }
+
         private void SimulateOtherPendingFixtures(string completedFixtureId)
         {
             int seed = 100;

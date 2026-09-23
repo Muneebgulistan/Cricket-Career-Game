@@ -24,6 +24,12 @@ namespace CricketGame.Career
         public float averageMatchRatingAtLevel = 0f;
         public bool isEligibleForPromotion = false;
 
+        public CricketGame.Career.Stages.CareerStage currentStage
+        {
+            get { return CricketGame.Career.Stages.CareerStageDefinition.FromCareerLevel(currentLevel); }
+            set { currentLevel = CricketGame.Career.Stages.CareerStageDefinition.ToCareerLevel(value); }
+        }
+
         public static readonly CareerLevel[] ProgressionLadder = new CareerLevel[]
         {
             CareerLevel.Under16Cup,

@@ -9,6 +9,8 @@ namespace CricketGame.Core
         MatchLoading,
         PlayingMatch,
         MatchPaused,
-        MatchFinished
+        MatchFinished,
+        Tournament,
+        CareerMatchResult
     }
 }

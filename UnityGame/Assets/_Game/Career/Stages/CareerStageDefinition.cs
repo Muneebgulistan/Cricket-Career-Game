@@ -161,5 +161,15 @@ namespace CricketGame.Career.Stages
 
             return stages;
         }
+
+        public static CareerStageDefinition GetStageDefinition(CareerStage stage)
+        {
+            List<CareerStageDefinition> all = GetStandardStageDefinitions();
+            for (int i = 0; i < all.Count; i++)
+            {
+                if (all[i].stage == stage) return all[i];
+            }
+            return all[0];
+        }
     }
 }

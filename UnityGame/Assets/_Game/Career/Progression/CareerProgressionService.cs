@@ -106,6 +106,10 @@ namespace CricketGame.Career.Progression
             {
                 newStage = (CareerStage)((int)newStage + 1);
                 profile.progression.currentLevel = CareerStageDefinition.ToCareerLevel(newStage);
+                if (profile.player != null)
+                {
+                    profile.player.currentLevel = profile.progression.currentLevel;
+                }
                 profile.progression.matchesAtCurrentLevel = 0;
                 profile.progression.averageMatchRatingAtLevel = 0f;
                 profile.progression.isEligibleForPromotion = false;
@@ -120,6 +124,12 @@ namespace CricketGame.Career.Progression
             }
 
             return false;
+        }
+
+        public static bool TryPromoteCareer(CareerProfile profile, TournamentProgress tournament)
+        {
+            CareerStage stage;
+            return TryPromoteCareer(profile, tournament, out stage);
         }
     }
 }

@@ -65,6 +65,14 @@ namespace CricketGame.Gameplay.Match
                 deliveryController.Initialize(bowlingController, battingController, fieldingManager, runningManager, scoringManager);
             }
 
+            if (CricketGame.Career.MatchIntegration.CareerMatchLauncher.Instance != null && 
+                CricketGame.Career.MatchIntegration.CareerMatchLauncher.Instance.ActiveContext != null)
+            {
+                var ctx = CricketGame.Career.MatchIntegration.CareerMatchLauncher.Instance.ActiveContext;
+                if (!string.IsNullOrEmpty(ctx.homeTeamName)) homeTeamName = ctx.homeTeamName;
+                if (!string.IsNullOrEmpty(ctx.awayTeamName)) awayTeamName = ctx.awayTeamName;
+            }
+
             matchController.SetupMatch(homeTeamName, awayTeamName);
             matchController.PerformToss(TossChoice.Heads, TossDecision.Bat);
         }
@@ -83,6 +91,8 @@ namespace CricketGame.Gameplay.Match
             {
                 OnMatchCompleted(result);
             }
+
+            CricketGame.Career.MatchIntegration.CareerMatchCompletionPipeline.ProcessMatchResult(result);
         }
 
         public void PauseMatch()

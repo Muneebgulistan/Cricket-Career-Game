@@ -47,11 +47,11 @@ namespace CricketGame.Input
 
                 if (delta.magnitude >= MinSwipeDistance)
                 {
-                    OnSwipe?.Invoke(touchStartPos, delta.normalized);
+                    if (OnSwipe != null) OnSwipe(touchStartPos, delta.normalized);
                 }
                 else
                 {
-                    OnTap?.Invoke(endPos);
+                    if (OnTap != null) OnTap(endPos);
                 }
             }
 #else
@@ -67,11 +67,11 @@ namespace CricketGame.Input
                     Vector2 delta = touch.position - touchStartPos;
                     if (delta.magnitude >= MinSwipeDistance)
                     {
-                        OnSwipe?.Invoke(touchStartPos, delta.normalized);
+                        if (OnSwipe != null) OnSwipe(touchStartPos, delta.normalized);
                     }
                     else
                     {
-                        OnTap?.Invoke(touch.position);
+                        if (OnTap != null) OnTap(touch.position);
                     }
                 }
             }

@@ -71,10 +71,22 @@ namespace CricketGame.Core
                 gameObject.AddComponent<AudioManager>();
             }
 
-            // Ensure InputManager exists
-            if (GetComponent<InputManager>() == null)
+            // Ensure TournamentManager exists
+            if (GetComponent<CricketGame.Career.Tournaments.TournamentManager>() == null)
             {
-                gameObject.AddComponent<InputManager>();
+                gameObject.AddComponent<CricketGame.Career.Tournaments.TournamentManager>();
+            }
+
+            // Ensure CareerMatchLauncher exists
+            if (GetComponent<CricketGame.Career.MatchIntegration.CareerMatchLauncher>() == null)
+            {
+                gameObject.AddComponent<CricketGame.Career.MatchIntegration.CareerMatchLauncher>();
+            }
+
+            // Ensure CareerMatchCompletionPipeline exists
+            if (GetComponent<CricketGame.Career.MatchIntegration.CareerMatchCompletionPipeline>() == null)
+            {
+                gameObject.AddComponent<CricketGame.Career.MatchIntegration.CareerMatchCompletionPipeline>();
             }
 
             Debug.Log("[GameBootstrap] All Core Subsystems successfully initialized.");
@@ -82,20 +94,20 @@ namespace CricketGame.Core
 
         private IEnumerator BootstrapSequence()
         {
-            GameStateManager.Instance?.ChangeState(GameState.Booting);
+            if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.Booting);
 
             // Attempt to load existing career if available
             SaveManager saveMgr = SaveManager.Instance;
             if (saveMgr != null && saveMgr.HasSaveFile())
             {
-                CareerManager.Instance?.LoadExistingCareer();
+                if (CareerManager.Instance != null) CareerManager.Instance.LoadExistingCareer();
             }
 
             yield return new WaitForSeconds(splashDelaySeconds);
 
             Debug.Log("[GameBootstrap] Transitioning from Bootstrap to MainMenu scene.");
-            GameStateManager.Instance?.ChangeState(GameState.MainMenu);
-            SceneController.Instance?.LoadScene(SceneController.SceneMainMenu);
+            if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.MainMenu);
+            if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneMainMenu);
         }
     }
 }

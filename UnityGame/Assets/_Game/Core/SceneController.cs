@@ -12,8 +12,10 @@ namespace CricketGame.Core
         public const string SceneBootstrap = "Bootstrap";
         public const string SceneMainMenu = "MainMenu";
         public const string SceneCareerHub = "CareerHub";
+        public const string SceneTournament = "Tournament";
         public const string SceneTraining = "Training";
         public const string SceneMatch = "Match";
+        public const string SceneCareerMatchResult = "CareerMatchResult";
 
         public event Action<string> OnSceneLoadStarted;
         public event Action<string> OnSceneLoadCompleted;

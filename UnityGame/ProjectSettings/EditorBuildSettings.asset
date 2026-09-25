@@ -71,6 +71,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Career/CareerMatchResult.unity
     guid: 10000000000000000000000000000026
+  - enabled: 1
+    path: Assets/Scenes/MatchPreview.unity
+    guid: 10000000000000000000000000000027
   m_configObjects: {}
 
 

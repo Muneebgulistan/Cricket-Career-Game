@@ -11,6 +11,7 @@ namespace CricketGame.Core
         MatchPaused,
         MatchFinished,
         Tournament,
+        MatchPreview,
         CareerMatchResult
     }
 }

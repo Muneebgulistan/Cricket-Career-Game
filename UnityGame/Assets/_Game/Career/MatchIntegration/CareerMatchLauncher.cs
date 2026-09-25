@@ -177,5 +177,43 @@ namespace CricketGame.Career.MatchIntegration
         {
             ActiveContext = context;
         }
+
+        /// <summary>
+        /// Called from the Match Preview screen to actually start the match.
+        /// The context was already prepared by LaunchCareerMatch (which navigated to preview first).
+        /// This method simply transitions state and loads the match scene.
+        /// Returns false if no context is available (safety guard).
+        /// </summary>
+        public bool LaunchMatchFromPreview()
+        {
+            if (ActiveContext == null)
+            {
+                Debug.LogWarning("[CareerMatchLauncher] LaunchMatchFromPreview: No active context. Preparing fallback context.");
+                return LaunchCareerMatch();
+            }
+
+            Debug.Log(string.Format("[CareerMatchLauncher] LaunchMatchFromPreview: Starting {0} vs {1}",
+                ActiveContext.homeTeamName, ActiveContext.awayTeamName));
+
+            ActiveContext.isMatchInProgress = true;
+            ActiveContext.isResultProcessed = false;
+
+            if (GameStateManager.Instance != null)
+            {
+                GameStateManager.Instance.ChangeState(GameState.PlayingMatch);
+            }
+
+            if (SceneController.Instance != null)
+            {
+                SceneController.Instance.LoadScene(SceneController.SceneMatch);
+            }
+
+            if (OnMatchLaunched != null)
+            {
+                OnMatchLaunched(ActiveContext);
+            }
+
+            return true;
+        }
     }
 }

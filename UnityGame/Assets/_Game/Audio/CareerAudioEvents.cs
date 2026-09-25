@@ -9,6 +9,7 @@ namespace CricketGame.Audio
         public static event Action<bool> OnMatchResultSound;
         public static event Action OnPromotionSound;
         public static event Action OnTournamentUnlockSound;
+        public static event Action OnMilestoneAchieved;
 
         public static void PlayButtonClick()
         {
@@ -55,6 +56,18 @@ namespace CricketGame.Audio
             else
             {
                 Debug.Log("[CareerAudio] SFX: New Tournament Unlocked Chime!");
+            }
+        }
+
+        public static void PlayMilestoneAchieved()
+        {
+            if (OnMilestoneAchieved != null)
+            {
+                OnMilestoneAchieved();
+            }
+            else
+            {
+                Debug.Log("[CareerAudio] SFX: Milestone Achieved!");
             }
         }
     }

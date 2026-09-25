@@ -78,7 +78,7 @@ namespace CricketGame.UI
             if (playerTeamText != null) playerTeamText.text = vm.currentTeam;
             if (careerLevelText != null) careerLevelText.text = vm.careerStage;
             if (overallRatingText != null) overallRatingText.text = string.Format("OVR: {0}", vm.overallRating);
-            
+
             if (formText != null) formText.text = string.Format("Form: {0:F0}%", vm.formPercent);
             if (fitnessText != null) fitnessText.text = string.Format("Fitness: {0:F0}%", vm.fitnessPercent);
 
@@ -89,6 +89,26 @@ namespace CricketGame.UI
 
             if (nextObjectiveText != null) nextObjectiveText.text = string.Format("Objective: {0}", vm.nextObjective);
             if (recentResultText != null) recentResultText.text = string.Format("Recent: {0}", vm.recentResult);
+
+            // Extended stats from actual career profile
+            CareerProfile profile = (CareerManager.Instance != null) ? CareerManager.Instance.ActiveCareer : null;
+            if (profile != null && profile.statistics != null)
+            {
+                int totalRuns = (profile.statistics.allTimeBatting != null) ? profile.statistics.allTimeBatting.runs : 0;
+                int totalWickets = (profile.statistics.allTimeBowling != null) ? profile.statistics.allTimeBowling.wickets : 0;
+                int totalMatches = (profile.statistics.allTimeBatting != null) ? profile.statistics.allTimeBatting.matches : 0;
+                int totalCatches = (profile.statistics.allTimeFielding != null) ? profile.statistics.allTimeFielding.catches : 0;
+                float batAvg = (totalMatches > 0) ? ((float)totalRuns / totalMatches) : 0f;
+                float bowlAvg = (totalWickets > 0 && profile.statistics.allTimeBowling != null)
+                    ? ((float)profile.statistics.allTimeBowling.runsConceded / totalWickets) : 0f;
+
+                if (careerRunsText != null) careerRunsText.text = string.Format("Runs: {0}", totalRuns);
+                if (battingAverageText != null) battingAverageText.text = string.Format("Avg: {0:F1}", batAvg);
+                if (careerWicketsText != null) careerWicketsText.text = string.Format("Wickets: {0}", totalWickets);
+                if (bowlingAverageText != null) bowlingAverageText.text = string.Format("Bowl Avg: {0:F1}", bowlAvg);
+                if (careerMatchesText != null) careerMatchesText.text = string.Format("Matches: {0}", totalMatches);
+                if (careerCatchesText != null) careerCatchesText.text = string.Format("Catches: {0}", totalCatches);
+            }
         }
 
         private void SetPlaceholderData()
@@ -108,22 +128,43 @@ namespace CricketGame.UI
             BindViewModel(vm);
         }
 
+        [Header("Extended Career Stats")]
+        [SerializeField] private Text careerRunsText;
+        [SerializeField] private Text battingAverageText;
+        [SerializeField] private Text careerWicketsText;
+        [SerializeField] private Text bowlingAverageText;
+        [SerializeField] private Text careerMatchesText;
+        [SerializeField] private Text careerCatchesText;
+
         public void OnPlayMatchClicked()
         {
             CricketGame.Audio.CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[CareerHubController] Initiating Match Launch sequence...");
+            Debug.Log("[CareerHubController] Navigating to Match Preview...");
 
-            bool launched = false;
+            // Prepare match context first
+            bool contextPrepared = false;
             if (CricketGame.Career.MatchIntegration.CareerMatchLauncher.Instance != null)
             {
-                launched = CricketGame.Career.MatchIntegration.CareerMatchLauncher.Instance.LaunchCareerMatch();
+                CareerProfile profile = (CareerManager.Instance != null) ? CareerManager.Instance.ActiveCareer : null;
+                var tournament = (CricketGame.Career.Tournaments.TournamentManager.Instance != null)
+                    ? CricketGame.Career.Tournaments.TournamentManager.Instance.ActiveTournament
+                    : null;
+
+                if (profile != null)
+                {
+                    // Prepare context without loading match scene yet
+                    var launcher = CricketGame.Career.MatchIntegration.CareerMatchLauncher.Instance;
+                    var context = launcher.CreateMatchContext(profile, tournament);
+                    launcher.SetActiveContextForTesting(context);
+                    context.isMatchInProgress = false;
+                    context.isResultProcessed = false;
+                    contextPrepared = true;
+                }
             }
 
-            if (!launched)
-            {
-                if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.MatchLoading);
-                if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneMatch);
-            }
+            // Navigate to match preview scene
+            if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.MatchPreview);
+            if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneMatchPreview);
         }
 
         public void OnTrainingClicked()

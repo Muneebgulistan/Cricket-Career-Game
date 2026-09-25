@@ -13,6 +13,7 @@ namespace CricketGame.Core
         public const string SceneMainMenu = "MainMenu";
         public const string SceneCareerHub = "CareerHub";
         public const string SceneTournament = "Tournament";
+        public const string SceneMatchPreview = "MatchPreview";
         public const string SceneTraining = "Training";
         public const string SceneMatch = "Match";
         public const string SceneCareerMatchResult = "CareerMatchResult";

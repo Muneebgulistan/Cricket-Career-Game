@@ -1,37 +1,58 @@
 using UnityEngine;
-using CricketGame.Batting;
-using CricketGame.Bowling;
+using CricketGame.Gameplay.Batting;
+using CricketGame.Gameplay.Bowling;
 
 namespace CricketGame.AI
 {
+    /// <summary>
+    /// Simple AI decision layer for batting shot selection and bowling delivery selection.
+    /// Uses the existing BattingShotType, BowlingLength, and BowlingLine types from the
+    /// real project architecture. Do NOT introduce duplicate enum definitions.
+    /// </summary>
     public class CricketAI : MonoBehaviour
     {
-        public ShotType DecideAIShot(DeliveryLength length, DeliveryLine line, bool isPowerplay)
+        /// <summary>
+        /// Decide the AI batsman's shot based on the incoming delivery.
+        /// </summary>
+        public BattingShotType DecideAIShot(BowlingLength length, BowlingLine line, bool isPowerplay)
         {
-            if (isPowerplay && length == DeliveryLength.Full)
+            if (isPowerplay && length == BowlingLength.Full)
             {
-                return ShotType.Lofted;
+                return BattingShotType.LoftedDrive;
             }
 
-            if (length == DeliveryLength.Short)
+            if (length == BowlingLength.Short || length == BowlingLength.Bouncer)
             {
-                return ShotType.Pull;
+                return BattingShotType.Pull;
             }
 
-            return ShotType.Drive;
+            if (length == BowlingLength.Yorker)
+            {
+                return BattingShotType.Defensive;
+            }
+
+            if (line == BowlingLine.OutsideOff || line == BowlingLine.OffStump)
+            {
+                return BattingShotType.CoverDrive;
+            }
+
+            return BattingShotType.StraightDrive;
         }
 
-        public void DecideAIBowling(out DeliveryLength length, out DeliveryLine line, bool deathOvers)
+        /// <summary>
+        /// Decide the AI bowler's delivery length and line based on match context.
+        /// </summary>
+        public void DecideAIBowling(out BowlingLength length, out BowlingLine line, bool deathOvers)
         {
             if (deathOvers)
             {
-                length = DeliveryLength.Yorker;
-                line = DeliveryLine.OutsideOff;
+                length = BowlingLength.Yorker;
+                line = BowlingLine.OutsideOff;
             }
             else
             {
-                length = DeliveryLength.GoodLength;
-                line = DeliveryLine.Stumps;
+                length = BowlingLength.GoodLength;
+                line = BowlingLine.MiddleStump;
             }
         }
     }

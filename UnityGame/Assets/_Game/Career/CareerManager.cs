@@ -24,6 +24,12 @@ namespace CricketGame.Career
             get { return ActiveCareer != null; }
         }
 
+        public void SetActiveCareerForTesting(CareerProfile profile)
+        {
+            ActiveCareer = profile;
+            if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
+        }
+
         public event Action<CareerProfile> OnCareerUpdated;
         public event Action<CareerPerformanceReport> OnMatchEvaluated;
         public event Action<CareerStage> OnStagePromoted;

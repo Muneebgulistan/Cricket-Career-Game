@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
+using CricketGame.Animation;
+using CricketGame.Visuals;
+using CricketGame.Gameplay.Batting;
+using CricketGame.Gameplay.Bowling;
 
 namespace CricketGame.Players
 {
@@ -17,13 +21,23 @@ namespace CricketGame.Players
         WicketKeeping
     }
 
+    /// <summary>
+    /// Master animation controller that acts as the bridge between gameplay logic
+    /// controllers and specialized Animator/IK subsystems (Batting, Bowling, Fielding, Visual FX).
+    /// </summary>
     public class PlayerAnimationController : MonoBehaviour
     {
         [Header("Animation State")]
         [SerializeField] private PlayerAnimationState currentState = PlayerAnimationState.Idle;
 
-        [Header("Animator Component (Optional)")]
+        [Header("Animator Component")]
         [SerializeField] private Animator animator;
+
+        [Header("Specialized Subsystem Handlers")]
+        [SerializeField] private BattingAnimationHandler battingHandler;
+        [SerializeField] private BowlingAnimationHandler bowlingHandler;
+        [SerializeField] private FieldingAnimationHandler fieldingHandler;
+        [SerializeField] private PlayerVisualEffects visualEffects;
 
         [Header("Procedural Visual Limbs (Fallback)")]
         [SerializeField] private Transform leftArm;
@@ -33,14 +47,29 @@ namespace CricketGame.Players
 
         private float limbSwingTimer = 0f;
 
-        public PlayerAnimationState CurrentState
-        {
-            get { return currentState; }
-        }
+        public PlayerAnimationState CurrentState { get { return currentState; } }
+        public Animator AnimatorComponent { get { return animator; } }
+        public BattingAnimationHandler BattingHandler { get { return battingHandler; } }
+        public BowlingAnimationHandler BowlingHandler { get { return bowlingHandler; } }
+        public FieldingAnimationHandler FieldingHandler { get { return fieldingHandler; } }
+        public PlayerVisualEffects VisualEffects { get { return visualEffects; } }
 
         private void Awake()
         {
+            if (animator == null) animator = GetComponent<Animator>();
             if (animator == null) animator = GetComponentInChildren<Animator>();
+            if (battingHandler == null) battingHandler = GetComponent<BattingAnimationHandler>();
+            if (bowlingHandler == null) bowlingHandler = GetComponent<BowlingAnimationHandler>();
+            if (fieldingHandler == null) fieldingHandler = GetComponent<FieldingAnimationHandler>();
+            if (visualEffects == null) visualEffects = GetComponent<PlayerVisualEffects>();
+
+            // Wire the shared Animator into all sub-handlers
+            if (animator != null)
+            {
+                if (battingHandler != null) battingHandler.SetAnimator(animator);
+                if (bowlingHandler != null) bowlingHandler.SetAnimator(animator);
+                if (fieldingHandler != null) fieldingHandler.SetAnimator(animator);
+            }
         }
 
         public void InitializeLimbs(Transform lArm, Transform rArm, Transform lLeg, Transform rLeg)
@@ -80,18 +109,73 @@ namespace CricketGame.Players
             }
 
             // Update Animator if present
-            if (animator != null && animator.runtimeAnimatorController != null)
+            if (animator != null)
             {
                 animator.SetFloat("Speed", speed);
-                animator.SetBool("IsGrounded", isGrounded);
-                animator.SetBool("IsRunning", isRunning);
                 animator.SetBool("IsBatting", isBatting);
                 animator.SetBool("IsBowling", isBowling);
                 animator.SetBool("IsFielding", isFielding);
             }
 
-            // Procedural swing for placeholder geometry
+            // Procedural swing for placeholder geometry (when animator not driven by clips)
             UpdateProceduralLimbs(speed);
+        }
+
+        // Bridge methods for gameplay controllers
+        public void PlayBattingShot(BattingShotType shotType, bool isLofted, float exitSpeed = 100f)
+        {
+            currentState = PlayerAnimationState.Batting;
+            if (battingHandler != null)
+            {
+                battingHandler.TriggerShotAnimation(shotType, isLofted);
+            }
+            else if (animator != null)
+            {
+                animator.SetBool("IsBatting", true);
+                animator.SetInteger("ActionType", (int)shotType);
+                animator.SetTrigger("ActionTrigger");
+            }
+
+            if (visualEffects != null && isLofted)
+            {
+                visualEffects.EnableBatTrail(exitSpeed);
+            }
+        }
+
+        public void StartBowlingRunUp(BowlingBaseType bowlerType, DeliveryVariation variation, float runUpSpeed = 5.5f)
+        {
+            currentState = PlayerAnimationState.Bowling;
+            if (bowlingHandler != null)
+            {
+                bowlingHandler.StartRunUp(bowlerType, variation, runUpSpeed);
+            }
+            else if (animator != null)
+            {
+                animator.SetBool("IsBowling", true);
+                animator.SetFloat("Speed", runUpSpeed);
+                animator.SetInteger("ActionType", (int)bowlerType);
+                animator.SetTrigger("ActionTrigger");
+            }
+        }
+
+        public void PlayFieldingAction(FielderActionAnimation action)
+        {
+            currentState = PlayerAnimationState.Fielding;
+            if (fieldingHandler != null)
+            {
+                fieldingHandler.TriggerAction(action);
+            }
+            else if (animator != null)
+            {
+                animator.SetBool("IsFielding", true);
+                animator.SetInteger("ActionType", (int)action);
+                animator.SetTrigger("ActionTrigger");
+            }
+
+            if (visualEffects != null && action == FielderActionAnimation.Diving)
+            {
+                visualEffects.TriggerFielderSlideParticles();
+            }
         }
 
         private void UpdateProceduralLimbs(float speed)

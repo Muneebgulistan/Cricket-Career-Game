@@ -78,7 +78,7 @@ npm run dev
 
 ## Verification Status
 
-All 965 automated unit, integration, and physics tests across Steps 1–14 and the TypeScript prototype pass with a 100% success rate:
+All 1082 automated unit, integration, and physics tests across Steps 1–20 and the TypeScript prototype pass with a 100% success rate:
 - **Step 2 (Stadium & Camera)**: 27/27 tests
 - **Step 3 (3D Players & Attributes)**: 55/55 tests
 - **Step 4 (Batting Gameplay & Mechanics)**: 76/76 tests
@@ -92,8 +92,10 @@ All 965 automated unit, integration, and physics tests across Steps 1–14 and t
 - **Step 12 (Playable Career Hub & Complete Career Loop)**: 91/91 tests
 - **Step 13 (Visual Game Presentation & UI Polish)**: 96/96 tests
 - **Step 14 (3D Gameplay & Opponent AI)**: 91/91 tests
+- **Step 15 (Player Animation & IK Foundation)**: 61/61 tests
+- **Step 20 (Final UI/UX & Mobile Safe-Area Polish)**: 56/56 tests
 - **Prototype (TypeScript / Vitest reference suite)**: 62/62 tests
-- **Total**: 965/965 tests passing (100% pass rate)
+- **Total**: 1082/1082 tests passing (100% pass rate)
 
 ---
 

@@ -41,7 +41,8 @@ namespace CricketGame.UI
 
         private void RefreshButtonStates()
         {
-            bool hasSave = CareerManager.Instance != null && CareerManager.Instance.HasActiveCareer;
+            bool hasSave = (CareerManager.Instance != null && CareerManager.Instance.HasActiveCareer) ||
+                           (CricketGame.SaveSystem.SaveProfileManager.Instance != null && CricketGame.SaveSystem.SaveProfileManager.Instance.HasProfile());
             if (continueCareerButton != null)
             {
                 continueCareerButton.interactable = hasSave;
@@ -51,8 +52,13 @@ namespace CricketGame.UI
         public void OnNewCareerClicked()
         {
             Debug.Log("[MainMenuController] Starting New Career...");
+            if (AppFlowManager.Instance != null)
+            {
+                AppFlowManager.Instance.StartNewCareer();
+                return;
+            }
             
-            // Create default Under-16 prodigy
+            // Fallback default Under-16 prodigy
             PlayerProfile defaultPlayer = new PlayerProfile(
                 "Muneeb Gulistan", 
                 16, 
@@ -62,18 +68,23 @@ namespace CricketGame.UI
                 BowlingStyle.RightArmFast
             );
 
-            CareerManager.Instance?.CreateNewCareer(defaultPlayer);
-            GameStateManager.Instance?.ChangeState(GameState.CareerHub);
-            SceneController.Instance?.LoadScene(SceneController.SceneCareerHub);
+            if (CareerManager.Instance != null) CareerManager.Instance.CreateNewCareer(defaultPlayer);
+            if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.CareerHub);
+            if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneCareerHub);
         }
 
         public void OnContinueCareerClicked()
         {
             Debug.Log("[MainMenuController] Continuing Career...");
+            if (AppFlowManager.Instance != null)
+            {
+                if (AppFlowManager.Instance.LoadCareer()) return;
+            }
+
             if (CareerManager.Instance != null && CareerManager.Instance.HasActiveCareer)
             {
-                GameStateManager.Instance?.ChangeState(GameState.CareerHub);
-                SceneController.Instance?.LoadScene(SceneController.SceneCareerHub);
+                if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.CareerHub);
+                if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneCareerHub);
             }
         }
 

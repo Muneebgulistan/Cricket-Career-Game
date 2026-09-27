@@ -28,13 +28,24 @@ namespace CricketGame.Gameplay.Match
         [SerializeField] private RunningManager runningManager;
         [SerializeField] private SimpleCricketBall activeBall;
 
+        [Header("Animation Subsystems")]
+        [SerializeField] private CricketGame.Animation.BowlingAnimationHandler bowlingAnimationHandler;
+        [SerializeField] private CricketGame.Animation.BattingAnimationHandler battingAnimationHandler;
+        [SerializeField] private CricketGame.Animation.FieldingAnimationHandler fieldingAnimationHandler;
+
         [Header("Settings & Difficulty")]
         [SerializeField] private AIDifficulty matchDifficulty = AIDifficulty.Normal;
 
         private MatchController matchController;
         private bool isDeliveryInProgress = false;
+        private bool isWaitingForAnimationRelease = false;
         private BowlingDelivery currentDelivery;
         private BowlingReleaseData currentReleaseData;
+
+        public CricketGame.Animation.BowlingAnimationHandler BowlingAnimationHandler { get { return bowlingAnimationHandler; } set { bowlingAnimationHandler = value; } }
+        public CricketGame.Animation.BattingAnimationHandler BattingAnimationHandler { get { return battingAnimationHandler; } set { battingAnimationHandler = value; } }
+        public CricketGame.Animation.FieldingAnimationHandler FieldingAnimationHandler { get { return fieldingAnimationHandler; } set { fieldingAnimationHandler = value; } }
+        public bool IsWaitingForAnimationRelease { get { return isWaitingForAnimationRelease; } }
 
         public AIDifficulty MatchDifficulty
         {
@@ -109,6 +120,14 @@ namespace CricketGame.Gameplay.Match
             isDeliveryInProgress = true;
             currentDelivery = delivery != null ? delivery : BowlingDelivery.CreateDefault(BowlingBaseType.Fast, BowlingLength.GoodLength, BowlingLine.OffStump);
 
+            // Trigger bowler run-up animation
+            if (bowlingAnimationHandler != null)
+            {
+                bowlingAnimationHandler.StartRunUp(currentDelivery.baseType, currentDelivery.variation, 5.5f);
+                bowlingAnimationHandler.OnAnimationEvent_FrontFootLand();
+                bowlingAnimationHandler.OnAnimationEvent_BallRelease();
+            }
+
             // 1. Calculate release data
             Vector3 releasePoint = new Vector3(0f, 2.1f, -10.5f);
             BowlingSettings bowlSettings = new BowlingSettings();
@@ -136,6 +155,12 @@ namespace CricketGame.Gameplay.Match
                     ctx.seed = seed;
                     battingResult = batsmanAI.SimulateShotResult(currentDelivery, ctx, strikerProfile, BattingSettings.CreateDefault(), Vector3.forward);
                 }
+            }
+
+            // Trigger batsman shot animation
+            if (battingAnimationHandler != null && battingResult != null)
+            {
+                battingAnimationHandler.TriggerShotAnimation(battingResult.shotType, battingResult.launchAngle > 20f);
             }
 
             // 4. Fielding Result evaluation

@@ -71,7 +71,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000010, type: 3}
+  m_Script: {fileID: 11500000, guid: 054c6db959f5206468ec61a731e0505b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayCamera: {fileID: 102}
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000001, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a934df915b005341a3abb68d138eea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Career Bowler
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000002, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b1e66adca8466849b15419056b0bfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentRole: 1
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000003, type: 3}
+  m_Script: {fileID: 11500000, guid: 40d86b28168e69c4dbdaddc1ac02aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Career Bowler
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000004, type: 3}
+  m_Script: {fileID: 11500000, guid: f275d09f167e7044f82dc0bdb4c962b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000005, type: 3}
+  m_Script: {fileID: 11500000, guid: ad03a6eef2ccbd9448eaafcf6a156494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000006, type: 3}
+  m_Script: {fileID: 11500000, guid: a5d322661e139f749b8381a899aba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &409
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000030, type: 3}
+  m_Script: {fileID: 11500000, guid: fc6c4d4d57ed59c45a25db09ce9b5390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 408}
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000023, type: 3}
+  m_Script: {fileID: 11500000, guid: 13aefadb5524e7043b413b670cf48a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -9.81
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000001, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a934df915b005341a3abb68d138eea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Batsman
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000002, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b1e66adca8466849b15419056b0bfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentRole: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000003, type: 3}
+  m_Script: {fileID: 11500000, guid: 40d86b28168e69c4dbdaddc1ac02aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Batsman
@@ -774,7 +774,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000004, type: 3}
+  m_Script: {fileID: 11500000, guid: f275d09f167e7044f82dc0bdb4c962b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000005, type: 3}
+  m_Script: {fileID: 11500000, guid: ad03a6eef2ccbd9448eaafcf6a156494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 7
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000006, type: 3}
+  m_Script: {fileID: 11500000, guid: a5d322661e139f749b8381a899aba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &709
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000020, type: 3}
+  m_Script: {fileID: 11500000, guid: 651477cab92af5741bd57a10d5b2e5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 708}
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000021, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a53146c663f9014da1e00016e1e9dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   handle: {fileID: 785}
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000032, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d455636590d82a42b6c1ecc31eb7982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bowler: {fileID: 409}

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using CricketGame.Gameplay.Batting;
 
 namespace CricketGame.MobileInput
@@ -23,6 +24,7 @@ namespace CricketGame.MobileInput
         private Vector2 touchStartPosition;
         private float touchStartTime;
         private bool isTrackingTouch;
+        private bool touchStartedOverUI;
 
         public event Action<SwipeDirection, Vector2> OnSwipeDetected;
         public event Action<Vector2> OnTapDetected;
@@ -54,7 +56,7 @@ namespace CricketGame.MobileInput
                 Touch touch = UnityEngine.Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Began)
                 {
-                    BeginTouch(touch.position, Time.time);
+                    BeginTouch(touch.position, Time.time, IsPointerOverUI(touch.fingerId));
                 }
                 else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
                 {
@@ -66,7 +68,7 @@ namespace CricketGame.MobileInput
             {
                 if (UnityEngine.Input.GetMouseButtonDown(0))
                 {
-                    BeginTouch(new Vector2(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y), Time.time);
+                    BeginTouch(new Vector2(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y), Time.time, IsPointerOverUI());
                 }
                 else if (UnityEngine.Input.GetMouseButtonUp(0))
                 {
@@ -77,8 +79,14 @@ namespace CricketGame.MobileInput
 
         public void BeginTouch(Vector2 position, float time)
         {
+            BeginTouch(position, time, false);
+        }
+
+        private void BeginTouch(Vector2 position, float time, bool overUI)
+        {
             touchStartPosition = position;
             touchStartTime = time;
+            touchStartedOverUI = overUI;
             isTrackingTouch = true;
         }
 
@@ -86,6 +94,7 @@ namespace CricketGame.MobileInput
         {
             if (!isTrackingTouch) return;
             isTrackingTouch = false;
+            if (touchStartedOverUI) return;
 
             float duration = time - touchStartTime;
             Vector2 delta = endPosition - touchStartPosition;
@@ -116,6 +125,15 @@ namespace CricketGame.MobileInput
                     }
                 }
             }
+        }
+
+        private static bool IsPointerOverUI(int pointerId = -1)
+        {
+            EventSystem eventSystem = EventSystem.current;
+            if (eventSystem == null) return false;
+            return pointerId < 0
+                ? eventSystem.IsPointerOverGameObject()
+                : eventSystem.IsPointerOverGameObject(pointerId);
         }
 
         public SwipeDirection CalculateSwipeDirection(Vector2 directionNormalized)

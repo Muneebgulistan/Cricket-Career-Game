@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500}
   m_Enabled: 1
-  m_Script: {fileID: 11500000, guid: a0010000000000000000000000000001, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0373b3d1387d7419b81ab50bf94971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CricketGame.Gameplay:MatchManager
 --- !u!114 &503
@@ -259,6 +259,6 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500}
   m_Enabled: 1
-  m_Script: {fileID: 11500000, guid: u0010000000000000000000000000001, type: 3}
+  m_Script: {fileID: 11500000, guid: 828839e06827cf04e890c37e76691250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CricketGame.UI:MatchUIController

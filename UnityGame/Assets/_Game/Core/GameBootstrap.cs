@@ -4,6 +4,7 @@ using CricketGame.SaveSystem;
 using CricketGame.Career;
 using CricketGame.Audio;
 using CricketGame.Input;
+using UnityEngine.SceneManagement;
 
 namespace CricketGame.Core
 {
@@ -22,6 +23,7 @@ namespace CricketGame.Core
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
                 InitializeCoreSubsystems();
+                SceneManager.sceneLoaded += HandleSceneLoaded;
             }
             else if (Instance != this)
             {
@@ -29,8 +31,24 @@ namespace CricketGame.Core
             }
         }
 
+        private void OnDestroy()
+        {
+            if (Instance == this) SceneManager.sceneLoaded -= HandleSceneLoaded;
+        }
+
+        private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (scene.name != SceneController.SceneMatch) return;
+            if (FindObjectOfType<CricketGame.Gameplay.Match.PlayableCareerMatch>() == null)
+                new GameObject("Playable Career Match").AddComponent<CricketGame.Gameplay.Match.PlayableCareerMatch>();
+        }
+
         private void Start()
         {
+            // Keep mobile frame pacing stable; Unity ignores vSyncCount on mobile.
+            QualitySettings.vSyncCount = 1;
+            Application.targetFrameRate = 60;
+
             if (autoLoadMainMenu)
             {
                 StartCoroutine(BootstrapSequence());
@@ -51,6 +69,11 @@ namespace CricketGame.Core
             if (GetComponent<SceneController>() == null)
             {
                 gameObject.AddComponent<SceneController>();
+            }
+
+            if (GetComponent<ObjectPoolManager>() == null)
+            {
+                gameObject.AddComponent<ObjectPoolManager>();
             }
 
             // Ensure SaveManager exists

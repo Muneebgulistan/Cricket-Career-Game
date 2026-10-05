@@ -112,6 +112,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 200}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: m0013000000000000000000000000001, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f5d3dc4f52f47db887a6554ae19411f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CricketGame.UI:MatchPreviewController

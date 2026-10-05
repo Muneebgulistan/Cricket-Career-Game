@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using CricketGame.Gameplay.Batting;
 using CricketGame.Gameplay.Bowling;
+using CricketGame.Core;
 
 namespace CricketGame.Gameplay.Ball
 {
@@ -40,6 +41,29 @@ namespace CricketGame.Gameplay.Ball
         public event Action<BallState> OnBallStateChanged;
         public event Action<Vector3> OnPitchBounce;
         public event Action<BattingResult> OnBatContact;
+
+        /// <summary>Gets a match ball from the shared pool, registering the prefab on first use.</summary>
+        public static SimpleCricketBall SpawnPooled(GameObject prefab, Vector3 position, Quaternion rotation)
+        {
+            if (prefab == null) return null;
+            ObjectPoolManager pool = ObjectPoolManager.Instance;
+            if (pool == null) return Instantiate(prefab, position, rotation).GetComponent<SimpleCricketBall>();
+
+            int created;
+            int available;
+            if (!pool.TryGetCounts(PoolKind.Ball, out created, out available))
+                pool.RegisterPool(PoolKind.Ball, prefab, 4, 32);
+
+            GameObject ballObject = pool.RentBall(position, rotation);
+            return ballObject != null ? ballObject.GetComponent<SimpleCricketBall>() : null;
+        }
+
+        public void ReturnToPool()
+        {
+            ResetBall(transform.position);
+            if (ObjectPoolManager.Instance == null || !ObjectPoolManager.Instance.Release(gameObject))
+                StopBall();
+        }
 
         public void SetState(BallState newState)
         {

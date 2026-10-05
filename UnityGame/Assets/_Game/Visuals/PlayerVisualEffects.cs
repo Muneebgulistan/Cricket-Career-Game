@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using CricketGame.Core;
 
 namespace CricketGame.Visuals
 {
@@ -96,8 +97,7 @@ namespace CricketGame.Visuals
 
             if (bowlerFootstrikeParticles != null)
             {
-                bowlerFootstrikeParticles.transform.position = spawnPos;
-                bowlerFootstrikeParticles.Play();
+                PlayPooledParticle(bowlerFootstrikeParticles, spawnPos);
             }
 
             if (OnFootstrikeEffectSpawned != null)
@@ -114,8 +114,7 @@ namespace CricketGame.Visuals
 
             if (fielderSlideParticles != null)
             {
-                fielderSlideParticles.transform.position = spawnPos;
-                fielderSlideParticles.Play();
+                PlayPooledParticle(fielderSlideParticles, spawnPos);
             }
 
             if (OnFielderSlideEffectSpawned != null)
@@ -129,9 +128,33 @@ namespace CricketGame.Visuals
         {
             if (wicketImpactParticles != null)
             {
-                wicketImpactParticles.transform.position = stumpPosition;
-                wicketImpactParticles.Play();
+                PlayPooledParticle(wicketImpactParticles, stumpPosition);
             }
+        }
+
+        private static void PlayPooledParticle(ParticleSystem source, Vector3 position)
+        {
+            ObjectPoolManager pool = ObjectPoolManager.Instance;
+            if (pool == null)
+            {
+                source.transform.position = position;
+                source.Play();
+                return;
+            }
+
+            int created;
+            int available;
+            if (!pool.TryGetCounts(PoolKind.ParticleEffect, out created, out available))
+            {
+                // Scene-authored particle systems can act as the pool template.
+                pool.RegisterPool(PoolKind.ParticleEffect, source.gameObject, 4, 24);
+                source.gameObject.SetActive(false);
+            }
+
+            GameObject effect = pool.RentParticleEffect(position, source.transform.rotation);
+            if (effect == null) return;
+            ParticleSystem particles = effect.GetComponentInChildren<ParticleSystem>();
+            if (particles != null) particles.Play(true);
         }
     }
 }

@@ -74,7 +74,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000023, type: 3}
+  m_Script: {fileID: 11500000, guid: 13aefadb5524e7043b413b670cf48a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -9.81

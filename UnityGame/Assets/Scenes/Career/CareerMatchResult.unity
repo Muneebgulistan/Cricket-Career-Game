@@ -80,6 +80,6 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200}
   m_Enabled: 1
-  m_Script: {fileID: 11500000, guid: c0010000000000000000000000000003, type: 3}
+  m_Script: {fileID: 11500000, guid: f61f9c2b370d41c09d002beaf55f776c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CricketGame.UI:CareerMatchResultController

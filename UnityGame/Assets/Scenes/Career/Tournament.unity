@@ -80,6 +80,6 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200}
   m_Enabled: 1
-  m_Script: {fileID: 11500000, guid: c0010000000000000000000000000002, type: 3}
+  m_Script: {fileID: 11500000, guid: c6e662114f0b42baa962923d5bb15797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CricketGame.UI:TournamentScreenController

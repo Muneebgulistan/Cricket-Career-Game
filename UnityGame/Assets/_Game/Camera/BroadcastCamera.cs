@@ -20,7 +20,7 @@ namespace CricketGame.Camera
         public void SetCameraMode(CameraViewMode mode)
         {
             currentView = mode;
-            Debug.Log($"[BroadcastCamera] Switched to camera view: {mode}");
+            CricketGame.Core.CricketLogger.Log($"[BroadcastCamera] Switched to camera view: {mode}");
         }
 
         private void LateUpdate()

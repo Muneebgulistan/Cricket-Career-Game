@@ -48,7 +48,7 @@ namespace CricketGame.Stadiums
                 }
             }
 
-            Debug.Log(string.Format("[FloodlightManager] Floodlights state: {0} (Intensity: {1})", (turnOn ? "ON" : "OFF"), targetIntensity));
+            CricketGame.Core.CricketLogger.Log(string.Format("[FloodlightManager] Floodlights state: {0} (Intensity: {1})", (turnOn ? "ON" : "OFF"), targetIntensity));
         }
 
         public void ToggleFloodlights()

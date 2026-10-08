@@ -127,7 +127,7 @@ namespace CricketGame.Career.MatchIntegration
         {
             if (profile == null)
             {
-                Debug.LogWarning("[CareerMatchLauncher] Cannot launch match without an active CareerProfile.");
+                CricketGame.Core.CricketLogger.LogWarning("[CareerMatchLauncher] Cannot launch match without an active CareerProfile.");
                 return false;
             }
 
@@ -136,7 +136,7 @@ namespace CricketGame.Career.MatchIntegration
             {
                 if (profile.unlockedTournaments != null && !profile.unlockedTournaments.Contains(tournament.tournamentId))
                 {
-                    Debug.LogWarning(string.Format("[CareerMatchLauncher] Tournament '{0}' is locked.", tournament.tournamentId));
+                    CricketGame.Core.CricketLogger.LogWarning(string.Format("[CareerMatchLauncher] Tournament '{0}' is locked.", tournament.tournamentId));
                     return false;
                 }
             }
@@ -145,7 +145,7 @@ namespace CricketGame.Career.MatchIntegration
             ActiveContext.isMatchInProgress = true;
             ActiveContext.isResultProcessed = false;
 
-            Debug.Log(string.Format("[CareerMatchLauncher] Launching Match: {0} vs {1} at {2}", 
+            CricketGame.Core.CricketLogger.Log(string.Format("[CareerMatchLauncher] Launching Match: {0} vs {1} at {2}",
                 ActiveContext.homeTeamName, 
                 ActiveContext.awayTeamName, 
                 ActiveContext.venue));
@@ -188,11 +188,11 @@ namespace CricketGame.Career.MatchIntegration
         {
             if (ActiveContext == null)
             {
-                Debug.LogWarning("[CareerMatchLauncher] LaunchMatchFromPreview: No active context. Preparing fallback context.");
+                CricketGame.Core.CricketLogger.LogWarning("[CareerMatchLauncher] LaunchMatchFromPreview: No active context. Preparing fallback context.");
                 return LaunchCareerMatch();
             }
 
-            Debug.Log(string.Format("[CareerMatchLauncher] LaunchMatchFromPreview: Starting {0} vs {1}",
+            CricketGame.Core.CricketLogger.Log(string.Format("[CareerMatchLauncher] LaunchMatchFromPreview: Starting {0} vs {1}",
                 ActiveContext.homeTeamName, ActiveContext.awayTeamName));
 
             ActiveContext.isMatchInProgress = true;

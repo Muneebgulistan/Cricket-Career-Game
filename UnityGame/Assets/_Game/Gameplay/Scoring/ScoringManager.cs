@@ -7,6 +7,11 @@ namespace CricketGame.Gameplay.Scoring
     {
         public static ScoringManager Instance { get; private set; }
 
+        public static void SetInstanceForTesting(ScoringManager instance)
+        {
+            Instance = instance;
+        }
+
         [Header("Runtime Match Score")]
         [SerializeField] private MatchScore matchScore;
         [SerializeField] private BatterScore currentStriker;
@@ -63,6 +68,11 @@ namespace CricketGame.Gameplay.Scoring
             {
                 matchScore = new MatchScore();
             }
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this) Instance = null;
         }
 
         public void InitializeMatch(string teamA, string teamB, int maxOvers)

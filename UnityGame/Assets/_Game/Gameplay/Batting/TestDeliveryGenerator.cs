@@ -45,12 +45,12 @@ namespace CricketGame.Gameplay.Batting
         {
             if (bowlingController == null)
             {
-                bowlingController = FindFirstObjectByType<BowlingController>();
+                bowlingController = FindAnyObjectByType<BowlingController>();
             }
 
             if (ball == null)
             {
-                ball = FindFirstObjectByType<SimpleCricketBall>();
+                ball = FindAnyObjectByType<SimpleCricketBall>();
                 if (ball == null)
                 {
                     GameObject ballObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -62,7 +62,7 @@ namespace CricketGame.Gameplay.Batting
 
             if (batsman == null)
             {
-                batsman = FindFirstObjectByType<BattingController>();
+                batsman = FindAnyObjectByType<BattingController>();
             }
         }
 
@@ -100,7 +100,7 @@ namespace CricketGame.Gameplay.Batting
             {
                 int next = ((int)selectedDelivery + 1) % 5;
                 selectedDelivery = (TestDeliveryType)next;
-                Debug.Log(string.Format("[TestDeliveryGenerator] Switched to {0} delivery", selectedDelivery));
+                CricketGame.Core.CricketLogger.Log(string.Format("[TestDeliveryGenerator] Switched to {0} delivery", selectedDelivery));
             }
 
             if (UnityEngine.Input.GetKeyDown(KeyCode.F1)) selectedDelivery = TestDeliveryType.Straight;

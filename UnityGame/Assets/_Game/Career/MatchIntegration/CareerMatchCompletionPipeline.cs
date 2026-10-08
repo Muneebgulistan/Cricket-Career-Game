@@ -51,20 +51,20 @@ namespace CricketGame.Career.MatchIntegration
         {
             if (result == null)
             {
-                Debug.LogWarning("[CareerMatchCompletionPipeline] Null match result received.");
+                CricketGame.Core.CricketLogger.LogWarning("[CareerMatchCompletionPipeline] Null match result received.");
                 return new CareerPerformanceReport();
             }
 
             // Guard against duplicate processing
             if (context != null && context.isResultProcessed)
             {
-                Debug.Log("[CareerMatchCompletionPipeline] Result already processed for this match session.");
+                CricketGame.Core.CricketLogger.Log("[CareerMatchCompletionPipeline] Result already processed for this match session.");
                 return context.lastPerformanceReport;
             }
 
             if (profile == null)
             {
-                Debug.LogWarning("[CareerMatchCompletionPipeline] No active career profile to update.");
+                CricketGame.Core.CricketLogger.LogWarning("[CareerMatchCompletionPipeline] No active career profile to update.");
                 return new CareerPerformanceReport();
             }
 
@@ -128,7 +128,7 @@ namespace CricketGame.Career.MatchIntegration
                     if (profile.unlockedTournaments != null && !profile.unlockedTournaments.Contains(def.requiredTournamentId))
                     {
                         profile.unlockedTournaments.Add(def.requiredTournamentId);
-                        Debug.Log(string.Format("[CareerMatchCompletionPipeline] Unlocked tournament: {0}", def.requiredTournamentId));
+                        CricketGame.Core.CricketLogger.Log(string.Format("[CareerMatchCompletionPipeline] Unlocked tournament: {0}", def.requiredTournamentId));
                     }
                 }
             }

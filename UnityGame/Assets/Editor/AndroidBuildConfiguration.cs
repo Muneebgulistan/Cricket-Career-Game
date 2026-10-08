@@ -17,13 +17,19 @@ internal static class AndroidBuildConfiguration
     private static void ApplySettings()
     {
         bool changed = false;
-        changed |= PlayerSettings.Android.minSdkVersion != AndroidSdkVersions.AndroidApiLevel24;
-        changed |= PlayerSettings.Android.targetSdkVersion != AndroidSdkVersions.AndroidApiLevel34;
+        changed |= PlayerSettings.productName != CricketGame.Core.GameConstants.AppName;
+        changed |= PlayerSettings.bundleVersion != CricketGame.Core.GameConstants.AppVersion;
+        changed |= PlayerSettings.Android.bundleVersionCode != CricketGame.Core.GameConstants.BuildNumber;
+        changed |= PlayerSettings.Android.minSdkVersion != (AndroidSdkVersions)CricketGame.Core.GameConstants.MinimumApiLevel;
+        changed |= PlayerSettings.Android.targetSdkVersion != (AndroidSdkVersions)CricketGame.Core.GameConstants.TargetApiLevel;
         changed |= PlayerSettings.Android.targetArchitectures != AndroidArchitecture.ARM64;
         changed |= PlayerSettings.GetScriptingBackend(NamedBuildTarget.Android) != ScriptingImplementation.IL2CPP;
 
-        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel24;
-        PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevel34;
+        PlayerSettings.productName = CricketGame.Core.GameConstants.AppName;
+        PlayerSettings.bundleVersion = CricketGame.Core.GameConstants.AppVersion;
+        PlayerSettings.Android.bundleVersionCode = CricketGame.Core.GameConstants.BuildNumber;
+        PlayerSettings.Android.minSdkVersion = (AndroidSdkVersions)CricketGame.Core.GameConstants.MinimumApiLevel;
+        PlayerSettings.Android.targetSdkVersion = (AndroidSdkVersions)CricketGame.Core.GameConstants.TargetApiLevel;
         PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
         TextureCompressionFormat[] currentFormats = PlayerSettings.Android.textureCompressionFormats;
@@ -38,6 +44,6 @@ internal static class AndroidBuildConfiguration
             changed = true;
         }
 
-        if (changed) Debug.Log("Android release settings configured: API 24–34, ARM64, IL2CPP, ASTC AAB.");
+        if (changed) CricketGame.Core.CricketLogger.Log("Android release settings configured: API 24–34, ARM64, IL2CPP, ASTC AAB.");
     }
 }

@@ -15,9 +15,9 @@ namespace CricketGame.Gameplay.Fielding
 
         private void Awake()
         {
-            if (fieldingManager == null) fieldingManager = FindFirstObjectByType<FieldingManager>();
-            if (ball == null) ball = FindFirstObjectByType<SimpleCricketBall>();
-            if (fieldingInput == null) fieldingInput = FindFirstObjectByType<FieldingInput>();
+            if (fieldingManager == null) fieldingManager = FindAnyObjectByType<FieldingManager>();
+            if (ball == null) ball = FindAnyObjectByType<SimpleCricketBall>();
+            if (fieldingInput == null) fieldingInput = FindAnyObjectByType<FieldingInput>();
         }
 
         private void Update()

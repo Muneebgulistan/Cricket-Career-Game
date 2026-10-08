@@ -42,7 +42,7 @@ namespace CricketGame.Animation
             if (animator == null) animator = GetComponent<Animator>();
             if (animator == null) animator = GetComponentInChildren<Animator>();
             if (batController == null) batController = GetComponentInChildren<BatController>();
-            if (targetBall == null) targetBall = FindFirstObjectByType<SimpleCricketBall>();
+            if (targetBall == null) targetBall = FindAnyObjectByType<SimpleCricketBall>();
         }
 
         public void SetTargetBall(SimpleCricketBall ball)

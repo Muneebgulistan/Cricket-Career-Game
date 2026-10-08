@@ -184,30 +184,36 @@ namespace CricketGame.Gameplay.Ball
 
         private void Update()
         {
-            if (!isInPlay) return;
+            SimulateStep(Time.deltaTime);
+        }
+
+        /// <summary>Advances the custom ball integrator with a caller-supplied delta time.</summary>
+        internal void SimulateStep(float deltaTime)
+        {
+            if (!isInPlay || deltaTime <= 0f) return;
 
             // Apply air drag
             if (airDrag > 0f)
             {
-                velocity -= velocity * (airDrag * Time.deltaTime);
+                velocity -= velocity * (airDrag * deltaTime);
             }
 
             // Apply aerodynamic swing force while ball is in flight before bounce
             if (!hasBounced && currentState == BallState.InFlight)
             {
-                velocity.x += swingAcceleration * Time.deltaTime;
+                velocity.x += swingAcceleration * deltaTime;
             }
 
             // Apply gravity
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += gravity * deltaTime;
 
             // Update position
-            transform.position += velocity * Time.deltaTime;
+            transform.position += velocity * deltaTime;
 
             // Pitch & ground bounce check
             if (transform.position.y <= groundBounceThreshold)
             {
-                HandleGroundBounce();
+                HandleGroundBounce(deltaTime);
             }
 
             // Out-of-bounds check (beyond 85m from pitch center)
@@ -219,7 +225,7 @@ namespace CricketGame.Gameplay.Ball
             }
         }
 
-        private void HandleGroundBounce()
+        private void HandleGroundBounce(float deltaTime)
         {
             Vector3 pos = transform.position;
             pos.y = groundBounceThreshold;
@@ -264,8 +270,8 @@ namespace CricketGame.Gameplay.Ball
             {
                 // Rolling on ground surface
                 velocity.y = 0f;
-                velocity.x *= Mathf.Clamp01(1f - (Time.deltaTime * 1.5f));
-                velocity.z *= Mathf.Clamp01(1f - (Time.deltaTime * 1.5f));
+                velocity.x *= Mathf.Clamp01(1f - (deltaTime * 1.5f));
+                velocity.z *= Mathf.Clamp01(1f - (deltaTime * 1.5f));
 
                 if (velocity.sqrMagnitude < 0.1f)
                 {

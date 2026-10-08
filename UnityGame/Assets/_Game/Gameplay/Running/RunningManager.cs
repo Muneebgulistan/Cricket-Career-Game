@@ -17,7 +17,6 @@ namespace CricketGame.Gameplay.Running
         [Header("Runtime State")]
         [SerializeField] private RunningRuntimeData runtimeData = new RunningRuntimeData();
 
-        private bool runnersSynchronized;
         private int completedRuns;
         private bool isFinished;
 
@@ -112,7 +111,6 @@ namespace CricketGame.Gameplay.Running
             runtimeData.isRunActive = false;
             completedRuns = 0;
             isFinished = false;
-            runnersSynchronized = false;
             if (runningInput != null) runningInput.ResetInput();
         }
 

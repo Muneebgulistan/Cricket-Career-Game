@@ -15,7 +15,7 @@ namespace CricketGame.Gameplay.Match
         private bool finished, ballInFlight;
         private GameObject ball;
         private GUIStyle titleStyle, bodyStyle, buttonStyle, panelStyle;
-        private Camera matchCamera;
+        private UnityEngine.Camera matchCamera;
         private MatchResult pendingResult;
 
         private void Start()
@@ -31,8 +31,8 @@ namespace CricketGame.Gameplay.Match
 
         private void BuildPitch()
         {
-            matchCamera = Camera.main;
-            if (matchCamera == null) matchCamera = new GameObject("Match Camera").AddComponent<Camera>();
+            matchCamera = UnityEngine.Camera.main;
+            if (matchCamera == null) matchCamera = new GameObject("Match Camera").AddComponent<UnityEngine.Camera>();
             matchCamera.tag = "MainCamera";
             matchCamera.transform.position = new Vector3(0, 10, -17);
             matchCamera.transform.rotation = Quaternion.Euler(24, 0, 0);
@@ -59,7 +59,7 @@ namespace CricketGame.Gameplay.Match
                 float angle = i * Mathf.PI / 4;
                 MakePrimitive(PrimitiveType.Sphere, "Fielding teammate", new Vector3(Mathf.Sin(angle) * 8, .7f, Mathf.Cos(angle) * 8), new Vector3(.7f, 1.25f, .7f), new Color(.77f, .18f, .16f));
             }
-            if (FindObjectOfType<Light>() == null)
+            if (FindAnyObjectByType<Light>() == null)
             {
                 var light = new GameObject("Stadium Sun").AddComponent<Light>();
                 light.type = LightType.Directional; light.intensity = 1.15f;

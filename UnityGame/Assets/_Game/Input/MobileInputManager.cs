@@ -84,10 +84,10 @@ namespace CricketGame.MobileInput
 
         private void ResolveDependencies()
         {
-            if (battingInput == null) battingInput = FindObjectOfType<BattingInput>();
-            if (bowlingInput == null) bowlingInput = FindObjectOfType<BowlingInput>();
-            if (fieldingInput == null) fieldingInput = FindObjectOfType<FieldingInput>();
-            if (runningInput == null) runningInput = FindObjectOfType<RunningInput>();
+            if (battingInput == null) battingInput = FindAnyObjectByType<BattingInput>();
+            if (bowlingInput == null) bowlingInput = FindAnyObjectByType<BowlingInput>();
+            if (fieldingInput == null) fieldingInput = FindAnyObjectByType<FieldingInput>();
+            if (runningInput == null) runningInput = FindAnyObjectByType<RunningInput>();
 
             if (touchInput == null)
             {

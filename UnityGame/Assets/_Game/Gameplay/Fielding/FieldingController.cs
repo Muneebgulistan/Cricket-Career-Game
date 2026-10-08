@@ -51,7 +51,7 @@ namespace CricketGame.Gameplay.Fielding
         {
             if (targetBall == null)
             {
-                targetBall = FindFirstObjectByType<SimpleCricketBall>();
+                targetBall = FindAnyObjectByType<SimpleCricketBall>();
             }
         }
 

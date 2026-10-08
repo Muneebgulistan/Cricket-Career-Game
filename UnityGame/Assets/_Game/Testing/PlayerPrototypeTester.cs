@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using CricketGame.Players;
 
 namespace CricketGame.Testing
@@ -17,7 +17,7 @@ namespace CricketGame.Testing
         {
             if (player == null)
             {
-                player = FindObjectOfType<PlayerController>();
+                player = FindAnyObjectByType<PlayerController>();
             }
 
             if (testCamera == null)
@@ -43,23 +43,23 @@ namespace CricketGame.Testing
         {
             if (player == null) return;
 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha1))
             {
                 player.RoleController.SetRole(PlayerMatchRole.Batsman);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha2))
             {
                 player.RoleController.SetRole(PlayerMatchRole.Bowler);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha3))
             {
                 player.RoleController.SetRole(PlayerMatchRole.WicketKeeper);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha4))
             {
                 player.RoleController.SetRole(PlayerMatchRole.Fielder);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha5))
             {
                 player.RoleController.SetRole(PlayerMatchRole.Umpire);
             }

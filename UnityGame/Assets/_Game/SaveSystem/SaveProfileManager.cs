@@ -149,7 +149,7 @@ namespace CricketGame.SaveSystem
 
             if (!File.Exists(path))
             {
-                Debug.LogWarning(string.Format("[SaveProfileManager] No profile found at {0}", path));
+                CricketGame.Core.CricketLogger.LogWarning(string.Format("[SaveProfileManager] No profile found at {0}", path));
                 return null;
             }
 

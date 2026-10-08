@@ -19,7 +19,7 @@ namespace CricketGame.Audio
             }
             else
             {
-                Debug.Log("[CareerAudio] SFX: Button Click.");
+                CricketGame.Core.CricketLogger.Log("[CareerAudio] SFX: Button Click.");
             }
         }
 
@@ -31,7 +31,7 @@ namespace CricketGame.Audio
             }
             else
             {
-                Debug.Log(string.Format("[CareerAudio] SFX: Match Result Fanfare ({0}).", isWin ? "Victory" : "Defeat"));
+                CricketGame.Core.CricketLogger.Log(string.Format("[CareerAudio] SFX: Match Result Fanfare ({0}).", isWin ? "Victory" : "Defeat"));
             }
         }
 
@@ -43,7 +43,7 @@ namespace CricketGame.Audio
             }
             else
             {
-                Debug.Log("[CareerAudio] SFX: Career Promotion Trumpet Celebration!");
+                CricketGame.Core.CricketLogger.Log("[CareerAudio] SFX: Career Promotion Trumpet Celebration!");
             }
         }
 
@@ -55,7 +55,7 @@ namespace CricketGame.Audio
             }
             else
             {
-                Debug.Log("[CareerAudio] SFX: New Tournament Unlocked Chime!");
+                CricketGame.Core.CricketLogger.Log("[CareerAudio] SFX: New Tournament Unlocked Chime!");
             }
         }
 
@@ -67,7 +67,7 @@ namespace CricketGame.Audio
             }
             else
             {
-                Debug.Log("[CareerAudio] SFX: Milestone Achieved!");
+                CricketGame.Core.CricketLogger.Log("[CareerAudio] SFX: Milestone Achieved!");
             }
         }
     }

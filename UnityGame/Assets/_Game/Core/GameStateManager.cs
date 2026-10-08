@@ -7,6 +7,11 @@ namespace CricketGame.Core
     {
         public static GameStateManager Instance { get; private set; }
 
+        public static void SetInstanceForTesting(GameStateManager instance)
+        {
+            Instance = instance;
+        }
+
         private GameState currentState = GameState.Booting;
         private GameState previousState = GameState.Booting;
 
@@ -27,6 +32,11 @@ namespace CricketGame.Core
             }
         }
 
+        private void OnDestroy()
+        {
+            if (Instance == this) Instance = null;
+        }
+
         public void ChangeState(GameState newState)
         {
             if (currentState == newState) return;
@@ -34,7 +44,7 @@ namespace CricketGame.Core
             previousState = currentState;
             currentState = newState;
 
-            Debug.Log(string.Format("[GameStateManager] Transition: {0} -> {1}", previousState, currentState));
+            CricketGame.Core.CricketLogger.Log(string.Format("[GameStateManager] Transition: {0} -> {1}", previousState, currentState));
             if (OnStateChanged != null)
             {
                 OnStateChanged(previousState, currentState);

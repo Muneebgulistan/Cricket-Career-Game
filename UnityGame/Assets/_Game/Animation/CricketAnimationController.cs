@@ -26,7 +26,7 @@ namespace CricketGame.Animation
             {
                 animator.SetTrigger(anim.ToString());
             }
-            Debug.Log($"[CricketAnimationController] Played animation: {anim}");
+            CricketGame.Core.CricketLogger.Log($"[CricketAnimationController] Played animation: {anim}");
         }
     }
 }

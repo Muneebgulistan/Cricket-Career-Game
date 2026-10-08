@@ -50,7 +50,7 @@ namespace CricketGame.Gameplay.Match
 
             if (scoringManager == null)
             {
-                scoringManager = FindObjectOfType<ScoringManager>();
+                scoringManager = FindAnyObjectByType<ScoringManager>();
             }
 
             matchController = new MatchController(settings, scoringManager);

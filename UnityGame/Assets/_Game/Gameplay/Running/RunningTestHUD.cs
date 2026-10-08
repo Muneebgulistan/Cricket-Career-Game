@@ -16,7 +16,7 @@ namespace CricketGame.Gameplay.Running
         {
             if (runningManager == null)
             {
-                runningManager = FindObjectOfType<RunningManager>();
+                runningManager = FindAnyObjectByType<RunningManager>();
             }
 
             if (runButton != null)

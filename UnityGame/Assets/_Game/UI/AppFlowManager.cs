@@ -191,7 +191,7 @@ namespace CricketGame.UI
                 return true;
             }
 
-            Debug.LogWarning("[AppFlowManager] No saved career found to load.");
+            CricketGame.Core.CricketLogger.LogWarning("[AppFlowManager] No saved career found to load.");
             return false;
         }
 

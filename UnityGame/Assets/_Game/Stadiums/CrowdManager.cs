@@ -86,7 +86,7 @@ namespace CricketGame.Stadiums
                 }
             }
 
-            Debug.Log(string.Format("[CrowdManager] Crowd density set to {0} ({1}/{2} sections active).", density, activeCount, crowdStandSections.Count));
+            CricketGame.Core.CricketLogger.Log(string.Format("[CrowdManager] Crowd density set to {0} ({1}/{2} sections active).", density, activeCount, crowdStandSections.Count));
         }
 
         public void TriggerReaction(CrowdReactionType reaction)
@@ -95,18 +95,18 @@ namespace CricketGame.Stadiums
             {
                 case CrowdReactionType.BoundaryRoar:
                     crowdExcitementLevel = Mathf.Min(1.0f, crowdExcitementLevel + 0.3f);
-                    Debug.Log("[CrowdManager] Crowd roars for FOUR!");
+                    CricketGame.Core.CricketLogger.Log("[CrowdManager] Crowd roars for FOUR!");
                     break;
                 case CrowdReactionType.SixCelebration:
                     crowdExcitementLevel = 1.0f;
-                    Debug.Log("[CrowdManager] Massive celebration for MAXIMUM SIX!");
+                    CricketGame.Core.CricketLogger.Log("[CrowdManager] Massive celebration for MAXIMUM SIX!");
                     break;
                 case CrowdReactionType.WicketGasp:
                     crowdExcitementLevel = Mathf.Max(0.2f, crowdExcitementLevel - 0.2f);
-                    Debug.Log("[CrowdManager] Stunned silence / roar for WICKET!");
+                    CricketGame.Core.CricketLogger.Log("[CrowdManager] Stunned silence / roar for WICKET!");
                     break;
                 case CrowdReactionType.AppealMurmur:
-                    Debug.Log("[CrowdManager] Crowd joins the massive appeal!");
+                    CricketGame.Core.CricketLogger.Log("[CrowdManager] Crowd joins the massive appeal!");
                     break;
             }
         }

@@ -51,7 +51,7 @@ namespace CricketGame.UI
 
         public void OnNewCareerClicked()
         {
-            Debug.Log("[MainMenuController] Starting New Career...");
+            CricketGame.Core.CricketLogger.Log("[MainMenuController] Starting New Career...");
             if (AppFlowManager.Instance != null)
             {
                 AppFlowManager.Instance.StartNewCareer();
@@ -75,7 +75,7 @@ namespace CricketGame.UI
 
         public void OnContinueCareerClicked()
         {
-            Debug.Log("[MainMenuController] Continuing Career...");
+            CricketGame.Core.CricketLogger.Log("[MainMenuController] Continuing Career...");
             if (AppFlowManager.Instance != null)
             {
                 if (AppFlowManager.Instance.LoadCareer()) return;
@@ -96,13 +96,13 @@ namespace CricketGame.UI
             }
             else
             {
-                Debug.Log("[MainMenuController] Settings opened (Audio/Graphic controls toggle).");
+                CricketGame.Core.CricketLogger.Log("[MainMenuController] Settings opened (Audio/Graphic controls toggle).");
             }
         }
 
         public void OnExitClicked()
         {
-            Debug.Log("[MainMenuController] Exiting Game...");
+            CricketGame.Core.CricketLogger.Log("[MainMenuController] Exiting Game...");
             Application.Quit();
         }
     }

@@ -131,7 +131,7 @@ namespace CricketGame.UI
         public void OnStartMatchClicked()
         {
             CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[MatchPreviewController] Starting match from preview...");
+            CricketGame.Core.CricketLogger.Log("[MatchPreviewController] Starting match from preview...");
 
             // Use existing CareerMatchLauncher flow — already prepared
             bool launched = false;
@@ -153,7 +153,7 @@ namespace CricketGame.UI
         public void OnBackClicked()
         {
             CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[MatchPreviewController] Returning to Career Hub from preview...");
+            CricketGame.Core.CricketLogger.Log("[MatchPreviewController] Returning to Career Hub from preview...");
             if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.CareerHub);
             if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneCareerHub);
         }

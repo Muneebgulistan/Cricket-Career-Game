@@ -39,7 +39,7 @@ namespace CricketGame.Core
         private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             if (scene.name != SceneController.SceneMatch) return;
-            if (FindObjectOfType<CricketGame.Gameplay.Match.PlayableCareerMatch>() == null)
+            if (FindAnyObjectByType<CricketGame.Gameplay.Match.PlayableCareerMatch>() == null)
                 new GameObject("Playable Career Match").AddComponent<CricketGame.Gameplay.Match.PlayableCareerMatch>();
         }
 
@@ -47,7 +47,7 @@ namespace CricketGame.Core
         {
             // Keep mobile frame pacing stable; Unity ignores vSyncCount on mobile.
             QualitySettings.vSyncCount = 1;
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = GameConstants.TargetFrameRate;
 
             if (autoLoadMainMenu)
             {
@@ -57,12 +57,17 @@ namespace CricketGame.Core
 
         private void InitializeCoreSubsystems()
         {
-            Debug.Log("[GameBootstrap] Initializing Cricket Career Game Subsystems...");
+            CricketGame.Core.CricketLogger.Log("[GameBootstrap] Initializing Cricket Career Game Subsystems...");
 
             // Ensure GameStateManager exists
             if (GetComponent<GameStateManager>() == null)
             {
                 gameObject.AddComponent<GameStateManager>();
+            }
+
+            if (GetComponent<GameLifecycleManager>() == null)
+            {
+                gameObject.AddComponent<GameLifecycleManager>();
             }
 
             // Ensure SceneController exists
@@ -112,7 +117,7 @@ namespace CricketGame.Core
                 gameObject.AddComponent<CricketGame.Career.MatchIntegration.CareerMatchCompletionPipeline>();
             }
 
-            Debug.Log("[GameBootstrap] All Core Subsystems successfully initialized.");
+            CricketGame.Core.CricketLogger.Log("[GameBootstrap] All Core Subsystems successfully initialized.");
         }
 
         private IEnumerator BootstrapSequence()
@@ -128,7 +133,7 @@ namespace CricketGame.Core
 
             yield return new WaitForSeconds(splashDelaySeconds);
 
-            Debug.Log("[GameBootstrap] Transitioning from Bootstrap to MainMenu scene.");
+            CricketGame.Core.CricketLogger.Log("[GameBootstrap] Transitioning from Bootstrap to MainMenu scene.");
             if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.MainMenu);
             if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneMainMenu);
         }

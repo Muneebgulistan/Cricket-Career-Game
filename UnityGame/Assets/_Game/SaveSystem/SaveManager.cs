@@ -48,7 +48,7 @@ namespace CricketGame.SaveSystem
             {
                 string json = JsonUtility.ToJson(profile, true);
                 File.WriteAllText(SaveFilePath, json);
-                Debug.Log(string.Format("[SaveManager] Career saved successfully to: {0}", SaveFilePath));
+                CricketGame.Core.CricketLogger.Log(string.Format("[SaveManager] Career saved successfully to: {0}", SaveFilePath));
                 if (OnCareerSaved != null) OnCareerSaved();
                 return true;
             }
@@ -63,7 +63,7 @@ namespace CricketGame.SaveSystem
         {
             if (!HasSaveFile())
             {
-                Debug.LogWarning("[SaveManager] No career save file found.");
+                CricketGame.Core.CricketLogger.LogWarning("[SaveManager] No career save file found.");
                 return null;
             }
 
@@ -72,7 +72,7 @@ namespace CricketGame.SaveSystem
                 string json = File.ReadAllText(SaveFilePath);
                 CareerProfile profile = JsonUtility.FromJson<CareerProfile>(json);
                 string pName = (profile != null && profile.player != null) ? profile.player.name : "Unknown";
-                Debug.Log(string.Format("[SaveManager] Career loaded successfully for player: {0}", pName));
+                CricketGame.Core.CricketLogger.Log(string.Format("[SaveManager] Career loaded successfully for player: {0}", pName));
                 if (OnCareerLoaded != null) OnCareerLoaded();
                 return profile;
             }
@@ -90,7 +90,7 @@ namespace CricketGame.SaveSystem
                 if (HasSaveFile())
                 {
                     File.Delete(SaveFilePath);
-                    Debug.Log("[SaveManager] Save file deleted.");
+                    CricketGame.Core.CricketLogger.Log("[SaveManager] Save file deleted.");
                     return true;
                 }
                 return false;

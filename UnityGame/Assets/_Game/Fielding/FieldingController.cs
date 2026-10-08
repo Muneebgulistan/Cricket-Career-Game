@@ -23,12 +23,12 @@ namespace CricketGame.Fielding
         public void ApplyPreset(FieldingPreset preset)
         {
             currentPreset = preset;
-            Debug.Log($"[FieldingController] Applied fielding preset: {preset}");
+            CricketGame.Core.CricketLogger.Log($"[FieldingController] Applied fielding preset: {preset}");
         }
 
         public void ThrowBall(ThrowTarget target, float accuracy)
         {
-            Debug.Log($"[FieldingController] Fielder threw ball to {target} with accuracy {accuracy:P0}");
+            CricketGame.Core.CricketLogger.Log($"[FieldingController] Fielder threw ball to {target} with accuracy {accuracy:P0}");
         }
     }
 }

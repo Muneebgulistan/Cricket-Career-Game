@@ -54,8 +54,8 @@ namespace CricketGame.Gameplay.Bowling
 
         private void Start()
         {
-            if (activeBall == null) activeBall = FindFirstObjectByType<SimpleCricketBall>();
-            if (activeBatsman == null) activeBatsman = FindFirstObjectByType<BattingController>();
+            if (activeBall == null) activeBall = FindAnyObjectByType<SimpleCricketBall>();
+            if (activeBatsman == null) activeBatsman = FindAnyObjectByType<BattingController>();
 
             if (activeBall != null)
             {
@@ -231,7 +231,7 @@ namespace CricketGame.Gameplay.Bowling
                 OnDeliveryReleased(releaseData);
             }
 
-            Debug.Log(string.Format("[BowlingController] Released {0} at {1:F1} km/h", releaseData.deliveryName, releaseData.speedKph));
+            CricketGame.Core.CricketLogger.Log(string.Format("[BowlingController] Released {0} at {1:F1} km/h", releaseData.deliveryName, releaseData.speedKph));
         }
 
         private void HandlePitchBounce(Vector3 bouncePos)

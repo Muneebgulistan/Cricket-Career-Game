@@ -59,7 +59,7 @@ namespace CricketGame.UI
             CareerProfile profile = (CareerManager.Instance != null) ? CareerManager.Instance.ActiveCareer : null;
             if (profile == null)
             {
-                Debug.LogWarning("[CareerHubController] No active career found, displaying placeholder data.");
+                CricketGame.Core.CricketLogger.LogWarning("[CareerHubController] No active career found, displaying placeholder data.");
                 SetPlaceholderData();
                 return;
             }
@@ -139,10 +139,9 @@ namespace CricketGame.UI
         public void OnPlayMatchClicked()
         {
             CricketGame.Audio.CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[CareerHubController] Navigating to Match Preview...");
+            CricketGame.Core.CricketLogger.Log("[CareerHubController] Navigating to Match Preview...");
 
             // Prepare match context first
-            bool contextPrepared = false;
             if (CricketGame.Career.MatchIntegration.CareerMatchLauncher.Instance != null)
             {
                 CareerProfile profile = (CareerManager.Instance != null) ? CareerManager.Instance.ActiveCareer : null;
@@ -158,7 +157,6 @@ namespace CricketGame.UI
                     launcher.SetActiveContextForTesting(context);
                     context.isMatchInProgress = false;
                     context.isResultProcessed = false;
-                    contextPrepared = true;
                 }
             }
 
@@ -170,7 +168,7 @@ namespace CricketGame.UI
         public void OnTrainingClicked()
         {
             CricketGame.Audio.CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[CareerHubController] Navigating to Training scene...");
+            CricketGame.Core.CricketLogger.Log("[CareerHubController] Navigating to Training scene...");
             if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.Training);
             if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneTraining);
         }
@@ -178,13 +176,13 @@ namespace CricketGame.UI
         public void OnStatisticsClicked()
         {
             CricketGame.Audio.CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[CareerHubController] Statistics modal / view opened.");
+            CricketGame.Core.CricketLogger.Log("[CareerHubController] Statistics modal / view opened.");
         }
 
         public void OnTournamentsClicked()
         {
             CricketGame.Audio.CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[CareerHubController] Navigating to Tournament scene...");
+            CricketGame.Core.CricketLogger.Log("[CareerHubController] Navigating to Tournament scene...");
             if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.Tournament);
             if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneTournament);
         }
@@ -193,13 +191,13 @@ namespace CricketGame.UI
         {
             CricketGame.Audio.CareerAudioEvents.PlayButtonClick();
             if (CareerManager.Instance != null) CareerManager.Instance.SaveCurrentCareer();
-            Debug.Log("[CareerHubController] Career manually saved successfully.");
+            CricketGame.Core.CricketLogger.Log("[CareerHubController] Career manually saved successfully.");
         }
 
         public void OnBackClicked()
         {
             CricketGame.Audio.CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[CareerHubController] Returning to Main Menu...");
+            CricketGame.Core.CricketLogger.Log("[CareerHubController] Returning to Main Menu...");
             if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.MainMenu);
             if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneMainMenu);
         }

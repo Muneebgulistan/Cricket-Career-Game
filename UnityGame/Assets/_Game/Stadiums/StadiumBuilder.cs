@@ -75,7 +75,7 @@ namespace CricketGame.Stadiums
             BuildSkyDome();
             BuildFloodlightTowers();
 
-            Debug.Log("[StadiumBuilder] Stadium built successfully.");
+            CricketGame.Core.CricketLogger.Log("[StadiumBuilder] Stadium built successfully.");
         }
 
         // --------------------------------------------------

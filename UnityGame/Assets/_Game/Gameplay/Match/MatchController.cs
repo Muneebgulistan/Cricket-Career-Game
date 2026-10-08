@@ -136,6 +136,23 @@ namespace CricketGame.Gameplay.Match
                 runtimeData.lastBowlerId = runtimeData.currentBowlerId;
             }
 
+            // DeliveryController applies the delivery to ScoringManager before the
+            // orchestrator records it here. ScoringManager can therefore already
+            // have advanced the innings index or concluded the match.
+            MatchScore currentScore = scoringManager != null ? scoringManager.CurrentMatchScore : null;
+            if (currentScore != null && currentScore.isMatchComplete)
+            {
+                ConcludeMatch();
+                return;
+            }
+
+            if (currentScore != null && runtimeData.currentInningsNumber == 1 && currentScore.currentInningsIndex == 1)
+            {
+                SetState(MatchState.InningsBreak);
+                StartInnings(2);
+                return;
+            }
+
             // Check if innings is complete
             if (scoringManager != null && scoringManager.CurrentInnings != null)
             {

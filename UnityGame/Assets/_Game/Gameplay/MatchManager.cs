@@ -55,21 +55,21 @@ namespace CricketGame.Gameplay
                 battingTeam = profile.player.currentTeam;
             }
 
-            Debug.Log($"[MatchManager] Initialized 3D Match: {battingTeam} vs {bowlingTeam}");
+            CricketGame.Core.CricketLogger.Log($"[MatchManager] Initialized 3D Match: {battingTeam} vs {bowlingTeam}");
         }
 
         public void PauseMatch()
         {
             GameStateManager.Instance?.ChangeState(GameState.MatchPaused);
             Time.timeScale = 0f;
-            Debug.Log("[MatchManager] Match Paused.");
+            CricketGame.Core.CricketLogger.Log("[MatchManager] Match Paused.");
         }
 
         public void ResumeMatch()
         {
             GameStateManager.Instance?.ChangeState(GameState.PlayingMatch);
             Time.timeScale = 1f;
-            Debug.Log("[MatchManager] Match Resumed.");
+            CricketGame.Core.CricketLogger.Log("[MatchManager] Match Resumed.");
         }
 
         public void EndMatchAndReturnToHub(bool playerWon = true)

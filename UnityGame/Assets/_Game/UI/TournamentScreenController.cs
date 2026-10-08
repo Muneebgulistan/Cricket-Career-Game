@@ -76,7 +76,7 @@ namespace CricketGame.UI
         public void OnPlayNextMatchClicked()
         {
             CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[TournamentScreenController] Launching next tournament match...");
+            CricketGame.Core.CricketLogger.Log("[TournamentScreenController] Launching next tournament match...");
 
             bool launched = false;
             if (CareerMatchLauncher.Instance != null)
@@ -94,7 +94,7 @@ namespace CricketGame.UI
         public void OnBackClicked()
         {
             CareerAudioEvents.PlayButtonClick();
-            Debug.Log("[TournamentScreenController] Returning to Career Hub...");
+            CricketGame.Core.CricketLogger.Log("[TournamentScreenController] Returning to Career Hub...");
             if (GameStateManager.Instance != null) GameStateManager.Instance.ChangeState(GameState.CareerHub);
             if (SceneController.Instance != null) SceneController.Instance.LoadScene(SceneController.SceneCareerHub);
         }

@@ -77,13 +77,13 @@ namespace CricketGame.Gameplay.Match
             }
 
             if (turnController == null) turnController = GetComponent<PlayerTurnController>();
-            if (scoringManager == null) scoringManager = FindFirstObjectByType<ScoringManager>();
-            if (deliveryController == null) deliveryController = FindFirstObjectByType<DeliveryController>();
-            if (bowlingController == null) bowlingController = FindFirstObjectByType<BowlingController>();
-            if (battingController == null) battingController = FindFirstObjectByType<BattingController>();
-            if (fieldingManager == null) fieldingManager = FindFirstObjectByType<FieldingManager>();
-            if (runningManager == null) runningManager = FindFirstObjectByType<RunningManager>();
-            if (activeBall == null) activeBall = FindFirstObjectByType<SimpleCricketBall>();
+            if (scoringManager == null) scoringManager = FindAnyObjectByType<ScoringManager>();
+            if (deliveryController == null) deliveryController = FindAnyObjectByType<DeliveryController>();
+            if (bowlingController == null) bowlingController = FindAnyObjectByType<BowlingController>();
+            if (battingController == null) battingController = FindAnyObjectByType<BattingController>();
+            if (fieldingManager == null) fieldingManager = FindAnyObjectByType<FieldingManager>();
+            if (runningManager == null) runningManager = FindAnyObjectByType<RunningManager>();
+            if (activeBall == null) activeBall = FindAnyObjectByType<SimpleCricketBall>();
         }
 
         public void Initialize(

@@ -13,9 +13,9 @@ namespace CricketGame.Gameplay.Bowling
 
         private void Awake()
         {
-            if (bowler == null) bowler = FindFirstObjectByType<BowlingController>();
-            if (bowlingInput == null) bowlingInput = FindFirstObjectByType<BowlingInput>();
-            if (ball == null) ball = FindFirstObjectByType<SimpleCricketBall>();
+            if (bowler == null) bowler = FindAnyObjectByType<BowlingController>();
+            if (bowlingInput == null) bowlingInput = FindAnyObjectByType<BowlingInput>();
+            if (ball == null) ball = FindAnyObjectByType<SimpleCricketBall>();
         }
 
         private void OnGUI()

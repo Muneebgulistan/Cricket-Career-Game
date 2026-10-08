@@ -15,8 +15,6 @@ namespace CricketGame.Career.Tournaments
             // Innings 1: 130 - 180 runs, 4 - 8 wickets
             int inn1Runs = rng.Next(130, 185);
             int inn1Wickets = rng.Next(4, 9);
-            float inn1Overs = 20.0f;
-
             // Innings 2: chasing target = inn1Runs + 1
             int target = inn1Runs + 1;
             bool chaserWins = rng.Next(0, 100) < 52; // 52% chasing win rate in T20

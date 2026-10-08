@@ -57,9 +57,9 @@ namespace CricketGame.UI.Mobile.Match
 
         private void FindEngineDependencies()
         {
-            if (matchManager == null) matchManager = FindObjectOfType<MatchManager>();
-            if (deliveryController == null) deliveryController = FindObjectOfType<DeliveryController>();
-            if (scoringManager == null) scoringManager = FindObjectOfType<ScoringManager>();
+            if (matchManager == null) matchManager = FindAnyObjectByType<MatchManager>();
+            if (deliveryController == null) deliveryController = FindAnyObjectByType<DeliveryController>();
+            if (scoringManager == null) scoringManager = FindAnyObjectByType<ScoringManager>();
         }
 
         private void SubscribeEngineEvents()

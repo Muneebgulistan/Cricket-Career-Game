@@ -49,7 +49,7 @@ namespace CricketGame.Career
         public void CreateNewCareer(PlayerProfile player)
         {
             ActiveCareer = new CareerProfile(player);
-            Debug.Log(string.Format("[CareerManager] Created new career for: {0}", player.name));
+            CricketGame.Core.CricketLogger.Log(string.Format("[CareerManager] Created new career for: {0}", player.name));
             SaveCurrentCareer();
             if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
         }
@@ -63,7 +63,7 @@ namespace CricketGame.Career
             {
                 ActiveCareer = loaded;
                 string pName = (ActiveCareer.player != null) ? ActiveCareer.player.name : "Unknown";
-                Debug.Log(string.Format("[CareerManager] Successfully loaded career for: {0}", pName));
+                CricketGame.Core.CricketLogger.Log(string.Format("[CareerManager] Successfully loaded career for: {0}", pName));
                 if (OnCareerUpdated != null) OnCareerUpdated(ActiveCareer);
                 return true;
             }
@@ -117,7 +117,7 @@ namespace CricketGame.Career
             bool promoted = CareerProgressionService.TryPromoteCareer(ActiveCareer, tournament, out newStage);
             if (promoted)
             {
-                Debug.Log(string.Format("[CareerManager] Player successfully promoted to stage: {0}", newStage));
+                CricketGame.Core.CricketLogger.Log(string.Format("[CareerManager] Player successfully promoted to stage: {0}", newStage));
                 SaveCurrentCareer();
 
                 if (OnStagePromoted != null)

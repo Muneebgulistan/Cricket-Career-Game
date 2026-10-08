@@ -145,7 +145,9 @@ namespace CricketGame.Players
             }
             else
             {
-                isGrounded = transform.position.y <= 0.05f;
+                isGrounded = groundCheckPoint != null
+                    ? Physics.CheckSphere(groundCheckPoint.position, groundCheckDistance, groundLayer, QueryTriggerInteraction.Ignore)
+                    : transform.position.y <= 0.05f;
             }
         }
 

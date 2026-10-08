@@ -161,7 +161,7 @@ namespace CricketGame.UI
 
         public void ConfigureAllCanvases()
         {
-            CanvasScaler[] scalers = FindObjectsByType<CanvasScaler>();
+            CanvasScaler[] scalers = FindAllObjectsUnsorted<CanvasScaler>();
             if (scalers != null)
             {
                 foreach (CanvasScaler s in scalers)
@@ -235,16 +235,12 @@ namespace CricketGame.UI
             AsyncOperation asyncOp = SceneManager.LoadSceneAsync(sceneName);
             if (asyncOp != null)
             {
-                // Advance progress gracefully (compatible with both real Unity and headless tests)
-                for (int step = 1; step <= 5; step++)
+                while (!asyncOp.isDone)
                 {
-                    float p = step * 0.2f;
-                    asyncOp.progress = p;
+                    float p = Mathf.Clamp01(asyncOp.progress / 0.9f);
                     UpdateLoadingUI(p, string.Format("Loading {0}... {1}%", sceneName, Mathf.RoundToInt(p * 100f)));
                     yield return null;
                 }
-                asyncOp.isDone = true;
-                asyncOp.TriggerCompleted();
             }
 
             UpdateLoadingUI(1.0f, "Match Environment Ready!");
@@ -288,9 +284,9 @@ namespace CricketGame.UI
         }
 
         // Helper to find objects in scene without deprecated methods
-        private T[] FindObjectsByType<T>() where T : Component
+        private T[] FindAllObjectsUnsorted<T>() where T : Component
         {
-            return UnityEngine.Object.FindObjectsOfType<T>();
+            return UnityEngine.Object.FindObjectsByType<T>();
         }
     }
 }

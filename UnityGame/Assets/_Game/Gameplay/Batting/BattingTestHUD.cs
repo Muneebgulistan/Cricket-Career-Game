@@ -8,7 +8,9 @@ namespace CricketGame.Gameplay.Batting
     {
         [Header("References")]
         [SerializeField] private BattingController batsman;
+#pragma warning disable CS0618 // Practice scenes intentionally retain the legacy delivery adapter.
         [SerializeField] private TestDeliveryGenerator deliveryGenerator;
+#pragma warning restore CS0618
         [SerializeField] private SimpleCricketBall ball;
 
         [Header("Feedback Flash")]
@@ -18,9 +20,11 @@ namespace CricketGame.Gameplay.Batting
 
         private void Awake()
         {
-            if (batsman == null) batsman = FindFirstObjectByType<BattingController>();
-            if (deliveryGenerator == null) deliveryGenerator = FindFirstObjectByType<TestDeliveryGenerator>();
-            if (ball == null) ball = FindFirstObjectByType<SimpleCricketBall>();
+            if (batsman == null) batsman = FindAnyObjectByType<BattingController>();
+#pragma warning disable CS0618 // Practice scenes intentionally retain the legacy delivery adapter.
+            if (deliveryGenerator == null) deliveryGenerator = FindAnyObjectByType<TestDeliveryGenerator>();
+#pragma warning restore CS0618
+            if (ball == null) ball = FindAnyObjectByType<SimpleCricketBall>();
         }
 
         private void Start()

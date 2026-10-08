@@ -177,7 +177,7 @@ namespace CricketGame.UI
             string error;
             if (!ValidateForm(out error))
             {
-                Debug.LogWarning(string.Format("[PlayerCreationScreen] Validation failed: {0}", error));
+                CricketGame.Core.CricketLogger.LogWarning(string.Format("[PlayerCreationScreen] Validation failed: {0}", error));
                 return null;
             }
 

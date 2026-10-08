@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using CricketGame.Fielding;
 using CricketGame.Players;
@@ -32,9 +32,9 @@ namespace CricketGame.Gameplay
 
         public void SpawnMatchPlayers()
         {
-            if (positionManager == null) positionManager = FindObjectOfType<CricketPositionManager>();
-            if (playerFactory == null) playerFactory = FindObjectOfType<PlayerFactory>();
-            if (teamAssignment == null) teamAssignment = FindObjectOfType<PlayerTeamAssignment>();
+            if (positionManager == null) positionManager = FindAnyObjectByType<CricketPositionManager>();
+            if (playerFactory == null) playerFactory = FindAnyObjectByType<PlayerFactory>();
+            if (teamAssignment == null) teamAssignment = FindAnyObjectByType<PlayerTeamAssignment>();
 
             if (playerFactory == null)
             {
@@ -52,7 +52,7 @@ namespace CricketGame.Gameplay
             if (positionManager != null && playerFactory != null && teamAssignment != null)
             {
                 activeMatchPlayers = teamAssignment.SpawnMatchPlayers(playerFactory, positionManager);
-                Debug.Log(string.Format("[MatchPlayerSpawner] Successfully spawned {0} players into the stadium environment.", activeMatchPlayers.Count));
+                CricketGame.Core.CricketLogger.Log(string.Format("[MatchPlayerSpawner] Successfully spawned {0} players into the stadium environment.", activeMatchPlayers.Count));
             }
         }
     }

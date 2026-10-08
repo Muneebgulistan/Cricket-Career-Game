@@ -30,55 +30,55 @@ namespace CricketGame.Audio
         public static void TriggerBatContact()
         {
             if (OnBatContact != null) OnBatContact();
-            else Debug.Log("[GameplayAudio] SFX: Bat Contact.");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: Bat Contact.");
         }
 
         public static void TriggerBoundaryFour()
         {
             if (OnBoundaryFour != null) OnBoundaryFour();
-            else Debug.Log("[GameplayAudio] SFX: FOUR! Boundary.");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: FOUR! Boundary.");
         }
 
         public static void TriggerBoundarySix()
         {
             if (OnBoundarySix != null) OnBoundarySix();
-            else Debug.Log("[GameplayAudio] SFX: SIX! Maximum!");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: SIX! Maximum!");
         }
 
         public static void TriggerWicketFall()
         {
             if (OnWicketFall != null) OnWicketFall();
-            else Debug.Log("[GameplayAudio] SFX: WICKET! Out!");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: WICKET! Out!");
         }
 
         public static void TriggerCatch()
         {
             if (OnCatch != null) OnCatch();
-            else Debug.Log("[GameplayAudio] SFX: Caught!");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: Caught!");
         }
 
         public static void TriggerRunOut()
         {
             if (OnRunOut != null) OnRunOut();
-            else Debug.Log("[GameplayAudio] SFX: Run Out!");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: Run Out!");
         }
 
         public static void TriggerDotBall()
         {
             if (OnDotBall != null) OnDotBall();
-            else Debug.Log("[GameplayAudio] SFX: Dot Ball.");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: Dot Ball.");
         }
 
         public static void TriggerMatchStart()
         {
             if (OnMatchStart != null) OnMatchStart();
-            else Debug.Log("[GameplayAudio] SFX: Match Starting!");
+            else CricketGame.Core.CricketLogger.Log("[GameplayAudio] SFX: Match Starting!");
         }
 
         public static void TriggerMatchEnd(bool playerTeamWon)
         {
             if (OnMatchEnd != null) OnMatchEnd(playerTeamWon);
-            else Debug.Log(string.Format("[GameplayAudio] SFX: Match End ({0}).", playerTeamWon ? "Victory" : "Defeat"));
+            else CricketGame.Core.CricketLogger.Log(string.Format("[GameplayAudio] SFX: Match End ({0}).", playerTeamWon ? "Victory" : "Defeat"));
         }
     }
 }

@@ -47,8 +47,8 @@ namespace CricketGame.Gameplay.Fielding
 
         private void Start()
         {
-            if (activeBall == null) activeBall = FindFirstObjectByType<SimpleCricketBall>();
-            if (batsman == null) batsman = FindFirstObjectByType<BattingController>();
+            if (activeBall == null) activeBall = FindAnyObjectByType<SimpleCricketBall>();
+            if (batsman == null) batsman = FindAnyObjectByType<BattingController>();
 
             DiscoverAndRegisterFielders();
 
@@ -70,7 +70,7 @@ namespace CricketGame.Gameplay.Fielding
         public void DiscoverAndRegisterFielders()
         {
             allFielders.Clear();
-            FieldingController[] found = FindObjectsByType<FieldingController>(FindObjectsSortMode.None);
+            FieldingController[] found = FindObjectsByType<FieldingController>();
             for (int i = 0; i < found.Length; i++)
             {
                 allFielders.Add(found[i]);
@@ -232,7 +232,7 @@ namespace CricketGame.Gameplay.Fielding
         // ----------------------------------------------------
         public void PlayScenario(int scenarioIndex)
         {
-            if (activeBall == null) activeBall = FindFirstObjectByType<SimpleCricketBall>();
+            if (activeBall == null) activeBall = FindAnyObjectByType<SimpleCricketBall>();
             if (activeBall == null) return;
 
             // Reset all fielders
